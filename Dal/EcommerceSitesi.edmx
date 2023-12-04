@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EcommerceSitesiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Eposta" Type="varchar(max)" />
+          <Property Name="Sifre" Type="varchar(max)" />
+          <Property Name="Adi" Type="varchar(max)" />
+          <Property Name="Soyadi" Type="varchar(max)" />
+          <Property Name="KayitTarihi" Type="datetime" />
+          <Property Name="AktiflikDurumu" Type="bit" />
+          <Property Name="YetkiTuruID" Type="int" />
+        </EntityType>
+        <EntityType Name="KullaniciYetki">
+          <Key>
+            <PropertyRef Name="KullaniciYetkiTuruID" />
+          </Key>
+          <Property Name="KullaniciYetkiTuruID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciYetkiTuruAdi" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserLog">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogTuruID" Type="int" />
+          <Property Name="KayitTarihi" Type="datetime" />
+          <Property Name="BilgisayarIP" Type="varchar(max)" />
+          <Property Name="LogAciklama" Type="varchar(max)" />
+          <Property Name="LogUserID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserLogTuru">
+          <Key>
+            <PropertyRef Name="LogTuruID" />
+          </Key>
+          <Property Name="LogTuruID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogTuruAdi" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_Kullanici_KullaniciYetki">
+          <End Role="KullaniciYetki" Type="Self.KullaniciYetki" Multiplicity="0..1" />
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KullaniciYetki">
+              <PropertyRef Name="KullaniciYetkiTuruID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="YetkiTuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLog_UserLogTuru">
+          <End Role="UserLogTuru" Type="Self.UserLogTuru" Multiplicity="0..1" />
+          <End Role="UserLog" Type="Self.UserLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserLogTuru">
+              <PropertyRef Name="LogTuruID" />
+            </Principal>
+            <Dependent Role="UserLog">
+              <PropertyRef Name="LogTuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EcommerceSitesiModelStoreContainer">
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KullaniciYetki" EntityType="Self.KullaniciYetki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLog" EntityType="Self.UserLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLogTuru" EntityType="Self.UserLogTuru" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Kullanici_KullaniciYetki" Association="Self.FK_Kullanici_KullaniciYetki">
+            <End Role="KullaniciYetki" EntitySet="KullaniciYetki" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLog_UserLogTuru" Association="Self.FK_UserLog_UserLogTuru">
+            <End Role="UserLogTuru" EntitySet="UserLogTuru" />
+            <End Role="UserLog" EntitySet="UserLog" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EcommerceSitesiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EcommerceSitesiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kullanicis" EntityType="EcommerceSitesiModel.Kullanici" />
+          <EntitySet Name="KullaniciYetkis" EntityType="EcommerceSitesiModel.KullaniciYetki" />
+          <EntitySet Name="sysdiagrams" EntityType="EcommerceSitesiModel.sysdiagram" />
+          <EntitySet Name="UserLogs" EntityType="EcommerceSitesiModel.UserLog" />
+          <EntitySet Name="UserLogTurus" EntityType="EcommerceSitesiModel.UserLogTuru" />
+          <AssociationSet Name="FK_Kullanici_KullaniciYetki" Association="EcommerceSitesiModel.FK_Kullanici_KullaniciYetki">
+            <End Role="KullaniciYetki" EntitySet="KullaniciYetkis" />
+            <End Role="Kullanici" EntitySet="Kullanicis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLog_UserLogTuru" Association="EcommerceSitesiModel.FK_UserLog_UserLogTuru">
+            <End Role="UserLogTuru" EntitySet="UserLogTurus" />
+            <End Role="UserLog" EntitySet="UserLogs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Eposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Adi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Soyadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KayitTarihi" Type="DateTime" Precision="3" />
+          <Property Name="AktiflikDurumu" Type="Boolean" />
+          <Property Name="YetkiTuruID" Type="Int32" />
+          <NavigationProperty Name="KullaniciYetki" Relationship="EcommerceSitesiModel.FK_Kullanici_KullaniciYetki" FromRole="Kullanici" ToRole="KullaniciYetki" />
+        </EntityType>
+        <EntityType Name="KullaniciYetki">
+          <Key>
+            <PropertyRef Name="KullaniciYetkiTuruID" />
+          </Key>
+          <Property Name="KullaniciYetkiTuruID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciYetkiTuruAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Kullanicis" Relationship="EcommerceSitesiModel.FK_Kullanici_KullaniciYetki" FromRole="KullaniciYetki" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserLog">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogTuruID" Type="Int32" />
+          <Property Name="KayitTarihi" Type="DateTime" Precision="3" />
+          <Property Name="BilgisayarIP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LogAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LogUserID" Type="Int32" />
+          <NavigationProperty Name="UserLogTuru" Relationship="EcommerceSitesiModel.FK_UserLog_UserLogTuru" FromRole="UserLog" ToRole="UserLogTuru" />
+        </EntityType>
+        <EntityType Name="UserLogTuru">
+          <Key>
+            <PropertyRef Name="LogTuruID" />
+          </Key>
+          <Property Name="LogTuruID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogTuruAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserLogs" Relationship="EcommerceSitesiModel.FK_UserLog_UserLogTuru" FromRole="UserLogTuru" ToRole="UserLog" />
+        </EntityType>
+        <Association Name="FK_Kullanici_KullaniciYetki">
+          <End Type="EcommerceSitesiModel.KullaniciYetki" Role="KullaniciYetki" Multiplicity="0..1" />
+          <End Type="EcommerceSitesiModel.Kullanici" Role="Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KullaniciYetki">
+              <PropertyRef Name="KullaniciYetkiTuruID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="YetkiTuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLog_UserLogTuru">
+          <End Type="EcommerceSitesiModel.UserLogTuru" Role="UserLogTuru" Multiplicity="0..1" />
+          <End Type="EcommerceSitesiModel.UserLog" Role="UserLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserLogTuru">
+              <PropertyRef Name="LogTuruID" />
+            </Principal>
+            <Dependent Role="UserLog">
+              <PropertyRef Name="LogTuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EcommerceSitesiModelStoreContainer" CdmEntityContainer="EcommerceSitesiEntities">
+          <EntitySetMapping Name="Kullanicis">
+            <EntityTypeMapping TypeName="EcommerceSitesiModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="YetkiTuruID" ColumnName="YetkiTuruID" />
+                <ScalarProperty Name="AktiflikDurumu" ColumnName="AktiflikDurumu" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullaniciYetkis">
+            <EntityTypeMapping TypeName="EcommerceSitesiModel.KullaniciYetki">
+              <MappingFragment StoreEntitySet="KullaniciYetki">
+                <ScalarProperty Name="KullaniciYetkiTuruAdi" ColumnName="KullaniciYetkiTuruAdi" />
+                <ScalarProperty Name="KullaniciYetkiTuruID" ColumnName="KullaniciYetkiTuruID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="EcommerceSitesiModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogs">
+            <EntityTypeMapping TypeName="EcommerceSitesiModel.UserLog">
+              <MappingFragment StoreEntitySet="UserLog">
+                <ScalarProperty Name="LogUserID" ColumnName="LogUserID" />
+                <ScalarProperty Name="LogAciklama" ColumnName="LogAciklama" />
+                <ScalarProperty Name="BilgisayarIP" ColumnName="BilgisayarIP" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="LogTuruID" ColumnName="LogTuruID" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogTurus">
+            <EntityTypeMapping TypeName="EcommerceSitesiModel.UserLogTuru">
+              <MappingFragment StoreEntitySet="UserLogTuru">
+                <ScalarProperty Name="LogTuruAdi" ColumnName="LogTuruAdi" />
+                <ScalarProperty Name="LogTuruID" ColumnName="LogTuruID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="782bfb70b2a9498c9501a4918def271c" Name="Diagram1">
+        <EntityTypeShape EntityType="EcommerceSitesiModel.Kullanici" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.KullaniciYetki" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.UserLog" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.UserLogTuru" Width="1.5" PointX="0.75" PointY="1.375" />
+        <AssociationConnector Association="EcommerceSitesiModel.FK_Kullanici_KullaniciYetki" />
+        <AssociationConnector Association="EcommerceSitesiModel.FK_UserLog_UserLogTuru" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
