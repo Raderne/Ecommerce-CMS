@@ -7,101 +7,74 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ecommerce.Public.Ecommerce
+namespace Ecommerce.Yonetici
 {
 
 
-    public partial class KullaniciAna
+    public partial class KullaniciEkleme
     {
 
         /// <summary>
-        /// head control.
+        /// txt_eposta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.TextBox txt_eposta;
 
         /// <summary>
-        /// form1 control.
+        /// txt_sifre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox txt_sifre;
 
         /// <summary>
-        /// txt_Search control.
+        /// txt_kullaniciAdi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_Search;
+        protected global::System.Web.UI.WebControls.TextBox txt_kullaniciAdi;
 
         /// <summary>
-        /// lbl_MenuAcount control.
+        /// txt_kullaniciSoyad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lbl_MenuAcount;
+        protected global::System.Web.UI.WebControls.TextBox txt_kullaniciSoyad;
 
         /// <summary>
-        /// lBtn_logout control.
+        /// cb_isAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lBtn_logout;
+        protected global::System.Web.UI.WebControls.CheckBox cb_isAdmin;
 
         /// <summary>
-        /// Label1 control.
+        /// btn_KullaniciEkleme control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button btn_KullaniciEkleme;
 
         /// <summary>
-        /// lbl_bagItemsCount2 control.
+        /// lbl_EklemeSonuc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_bagItemsCount2;
-
-        /// <summary>
-        /// lbl_BagTotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_BagTotal;
-
-        /// <summary>
-        /// btn_CheckoutPage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_CheckoutPage;
-
-        /// <summary>
-        /// ContentPlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Label lbl_EklemeSonuc;
     }
 }

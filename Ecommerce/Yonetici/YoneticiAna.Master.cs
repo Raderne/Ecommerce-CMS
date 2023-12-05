@@ -11,18 +11,33 @@ namespace Ecommerce.Yonetici
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["KullaniciID"] == null)
+            if (!IsPostBack)
             {
-                Response.Redirect("KullaniciGiris.aspx");
-            }
-            else
-            {
-                string kullaniciAdi = Session["KullaniciAdi"].ToString();
-                string name = kullaniciAdi.Split(' ')[0];
+                if (Session["KullaniciID"] == null)
+                {
+                    Response.Redirect("KullaniciGiris.aspx");
+                }
+                else
+                {
+                    string kullaniciAdi = Session["KullaniciAdi"].ToString();
+                    string name = kullaniciAdi.Split(' ')[0];
 
-                lbl_KullaniciAdi.Text = kullaniciAdi;
-                lbl_MainContent_Name.Text = name;
+                    lbl_KullaniciAdi.Text = kullaniciAdi;
+                    lbl_MainContent_Name.Text = name;
+
+                    if (Session["YetkiTuruID"].ToString() == "2")
+                    {
+                        LBtn_kullaniciIslem.Visible = false;
+                        LBtn_kullaniciIslem.Style.Add("display", "none");
+                    }
+                    else
+                    {
+                        LBtn_kullaniciIslem.Visible = true;
+                        LBtn_kullaniciIslem.Style.Add("display", "block");
+                    }
+                }
             }
+            
         }
 
         protected void Sidebar_Logout_Click(object sender, EventArgs e)

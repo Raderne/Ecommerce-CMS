@@ -7,7 +7,7 @@ namespace BLL
 {
     public class BllKullanici
     {
-        public static bool KullaniciAdiKullaniyormu(string eposta)
+        public bool KullaniciAdiKullaniyormu(string eposta)
         {
             Dal.EcommerceSitesiEntities vt = new Dal.EcommerceSitesiEntities();
             var sonuc = vt.Kullanicis.Where(p => p.Eposta == eposta).ToList();

@@ -55,19 +55,16 @@
                         <li class="label">Main</li>
                         <li class="active"><a class="sidebar-sub-toggle">
                             <i class="ti-home"></i>Dashboard</a>
-                            <%-- <ul>
-                                <li><a href="index.html">Dashboard 1<span class="badge badge-primary">2</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a></li>
-                            </ul>--%>
                         </li>
-                        <li>
+                        <li id="LBtn_kullaniciIslem" runat="server">
                             <a class="sidebar-sub-toggle">
                                 <i class="ti-bar-chart-alt"></i>Kullanıcı İşlemleri <span class="sidebar-collapse-icon ti-angle-down"></span>
                             </a>
                             <ul>
                                 <li><a href="KullaniciYonetim.aspx">Kullanıcı Listesi</a></li>
+                                <li><a href="KullaniciEkleme.aspx">Kullanıcı Ekleme</a></li>
                             </ul>
                         </li>
-                        <%--<li><a href="../documentation/index.html"><i class="ti-file"></i>Documentation</a></li>--%>
                         <li class="nav-logout-btn">
                             <asp:LinkButton ID="Sidebar_Logout" runat="server" OnClick="Sidebar_Logout_Click">
                                 <i class="ti-close"></i>Logout

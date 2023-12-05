@@ -12,6 +12,13 @@
         <EntityTypeShape EntityType="EcommerceSitesiModel.UserLogTuru" Width="1.5" PointX="0.75" PointY="1.375" />
         <AssociationConnector Association="EcommerceSitesiModel.FK_Kullanici_KullaniciYetki" />
         <AssociationConnector Association="EcommerceSitesiModel.FK_UserLog_UserLogTuru" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.EcommerceUser" Width="1.5" PointX="5.375" PointY="7.875" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.Markalar" Width="1.5" PointX="5.375" PointY="5.375" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.Urunler" Width="1.5" PointX="7.625" PointY="4" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.UrunlerKategori" Width="1.5" PointX="5.375" PointY="10.875" />
+        <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_EcommerceUsers" />
+        <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_Markalar" />
+        <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_UrunlerKategori" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

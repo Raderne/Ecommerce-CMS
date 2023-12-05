@@ -77,7 +77,9 @@
     <Compile Include="BllKullanici.cs" />
     <Compile Include="BLLUserLog.cs" />
     <Compile Include="EcommerceSitesiBase.cs" />
+    <Compile Include="EcommerceUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Urunler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

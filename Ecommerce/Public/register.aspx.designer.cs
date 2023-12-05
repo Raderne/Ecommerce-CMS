@@ -7,21 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ecommerce.Public.Ecommerce
+namespace Ecommerce.Public
 {
 
 
-    public partial class KullaniciAna
+    public partial class register
     {
-
-        /// <summary>
-        /// head control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
 
         /// <summary>
         /// form1 control.
@@ -33,75 +24,57 @@ namespace Ecommerce.Public.Ecommerce
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txt_Search control.
+        /// txt_registerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_Search;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_registerName;
 
         /// <summary>
-        /// lbl_MenuAcount control.
+        /// txt_registerLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lbl_MenuAcount;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_registerLastName;
 
         /// <summary>
-        /// lBtn_logout control.
+        /// txt_registerEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lBtn_logout;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txt_registerEmail;
 
         /// <summary>
-        /// Label1 control.
+        /// txt_registerPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txt_registerPassword;
 
         /// <summary>
-        /// lbl_bagItemsCount2 control.
+        /// lbl_registerError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_bagItemsCount2;
+        protected global::System.Web.UI.WebControls.Label lbl_registerError;
 
         /// <summary>
-        /// lbl_BagTotal control.
+        /// btn_registerAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_BagTotal;
-
-        /// <summary>
-        /// btn_CheckoutPage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btn_CheckoutPage;
-
-        /// <summary>
-        /// ContentPlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button btn_registerAccount;
     }
 }

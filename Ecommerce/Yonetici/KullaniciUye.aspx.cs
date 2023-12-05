@@ -23,7 +23,7 @@ namespace Ecommerce.Yonetici
 
             if (eposta != "" && sifre != "")
             {
-                if (BLL.BllKullanici.KullaniciAdiKullaniyormu(eposta))
+                if (new BLL.BllKullanici().KullaniciAdiKullaniyormu(eposta))
                 {
                     Dal.Kullanici kullanici = new Dal.Kullanici();
                     kullanici.Eposta = eposta;

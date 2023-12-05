@@ -241,7 +241,9 @@
     <Content Include="Public\Ecommerce\dist\login.html" />
     <Content Include="Public\Ecommerce\dist\product.html" />
     <Content Include="Public\Ecommerce\dist\register.html" />
-    <Content Include="Public\WebForm1.aspx" />
+    <Content Include="Public\index.aspx" />
+    <Content Include="Public\login.aspx" />
+    <Content Include="Public\register.aspx" />
     <Content Include="Web.config" />
     <Content Include="Yonetici\admin\theme\app-calender.html" />
     <Content Include="Yonetici\admin\theme\app-email.html" />
@@ -4613,6 +4615,7 @@
     <Content Include="Yonetici\js\quixnav-init.js" />
     <Content Include="Yonetici\js\settings.js" />
     <Content Include="Yonetici\js\styleSwitcher.js" />
+    <Content Include="Yonetici\KullaniciEkleme.aspx" />
     <Content Include="Yonetici\KullaniciGiris.aspx" />
     <Content Include="Yonetici\KullaniciUye.aspx" />
     <Content Include="Yonetici\KullaniciYonetim.aspx" />
@@ -7941,6 +7944,13 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Public\classNotes.cs" />
+    <Compile Include="Public\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Public\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Public\KullaniciAna.Master.cs">
       <DependentUpon>KullaniciAna.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -7948,12 +7958,19 @@
     <Compile Include="Public\KullaniciAna.Master.designer.cs">
       <DependentUpon>KullaniciAna.Master</DependentUpon>
     </Compile>
-    <Compile Include="Public\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Public\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Public\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Public\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Public\register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Public\register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Yonetici\ClassNotes.cs" />
     <Compile Include="Yonetici\index.aspx.cs">
@@ -7962,6 +7979,13 @@
     </Compile>
     <Compile Include="Yonetici\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetici\KullaniciEkleme.aspx.cs">
+      <DependentUpon>KullaniciEkleme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yonetici\KullaniciEkleme.aspx.designer.cs">
+      <DependentUpon>KullaniciEkleme.aspx</DependentUpon>
     </Compile>
     <Compile Include="Yonetici\KullaniciGiris.aspx.cs">
       <DependentUpon>KullaniciGiris.aspx</DependentUpon>
