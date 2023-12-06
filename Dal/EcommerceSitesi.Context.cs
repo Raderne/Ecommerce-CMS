@@ -25,14 +25,14 @@ namespace Dal
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<EcommerceUser> EcommerceUsers { get; set; }
         public virtual DbSet<Kullanici> Kullanicis { get; set; }
         public virtual DbSet<KullaniciYetki> KullaniciYetkis { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<UserLog> UserLogs { get; set; }
-        public virtual DbSet<UserLogTuru> UserLogTurus { get; set; }
-        public virtual DbSet<EcommerceUser> EcommerceUsers { get; set; }
         public virtual DbSet<Markalar> Markalars { get; set; }
+        public virtual DbSet<UrunDetaylar> UrunDetaylars { get; set; }
         public virtual DbSet<Urunler> Urunlers { get; set; }
         public virtual DbSet<UrunlerKategori> UrunlerKategoris { get; set; }
+        public virtual DbSet<UserLog> UserLogs { get; set; }
+        public virtual DbSet<UserLogTuru> UserLogTurus { get; set; }
     }
 }

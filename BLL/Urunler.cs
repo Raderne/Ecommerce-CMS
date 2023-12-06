@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -13,9 +14,31 @@ namespace BLL
             return db.Urunlers.Where(x => x.AktifllikDurumu == true).ToList();
         }
 
-        public bool UrunEkle(Dal.Urunler urun)
+        public DataTable UrunlerList()
+        {   
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Urun Resim");
+            dt.Columns.Add("Urun Isim");
+            dt.Columns.Add("Urun Kategori");
+            dt.Columns.Add("Urun Fiyat");
+            dt.Columns.Add("miktar");
+            dt.Columns.Add("Urun Detaylar");
+
+            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            var urunler = db.Urunlers.Where(x => x.AktifllikDurumu == true).ToList();
+            foreach (var item in urunler)
+            {
+                var urunKategori = db.UrunlerKategoris.Where(x => x.UrunKategoriID == item.UrunKategoriID).SingleOrDefault();
+                dt.Rows.Add(item.UrunResim, item.UrunIsim, urunKategori.UrunkategoriAd, 
+                    item.UrunFiyat, item.miktar, item.UrunID);
+            }
+            return dt;
+        }
+
+        public bool UrunEkle(Dal.Urunler urun, Dal.UrunDetaylar urunDetaylar)
         {
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            db.UrunDetaylars.Add(urunDetaylar);
             db.Urunlers.Add(urun);
             db.SaveChanges();
             return true;
@@ -30,24 +53,23 @@ namespace BLL
             return true;
         }
 
-        public bool UrunGuncelle(Dal.Urunler urun)
+        public bool UrunGuncelle(Dal.Urunler urun, Dal.UrunDetaylar urunDetaylar)
         {
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
             var guncellenecek = db.Urunlers.Where(x => x.UrunID == urun.UrunID).SingleOrDefault();
+            var guncellenecekDetay = db.UrunDetaylars.Where(x => x.UrunDetayID == urun.UrunDetayID).SingleOrDefault();
             guncellenecek.UrunIsim = urun.UrunIsim;
             guncellenecek.UrunAciklama = urun.UrunAciklama;
             guncellenecek.UrunFiyat = urun.UrunFiyat;
-            guncellenecek.UrunIsim = urun.UrunIsim;
             guncellenecek.UrunResim = urun.UrunResim;
             guncellenecek.miktar = urun.miktar;
             guncellenecek.UrunKategoriID = urun.UrunKategoriID;
             guncellenecek.MarkaID = urun.MarkaID;
-            //guncellenecek.AktifllikDurumu = urun.AktifllikDurumu;
-            guncellenecek.Renk = urun.Renk;
             guncellenecek.isNew = urun.isNew;
             guncellenecek.isOnSale = urun.isOnSale;
             guncellenecek.UrunIndirimFiyat = urun.UrunIndirimFiyat;
-            guncellenecek.UserID = urun.UserID;
+            guncellenecekDetay.UrunRenk = urunDetaylar.UrunRenk;
+            guncellenecekDetay.UrunBoyut = urunDetaylar.UrunBoyut;
             db.SaveChanges();
             return true;
         }
@@ -63,6 +85,20 @@ namespace BLL
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
             return db.Urunlers.Where(x => x.UrunKategoriID == id && x.AktifllikDurumu == true).ToList();
         }
+
+        public List<Dal.Urunler> UrunListeleByMarkaId(int id)
+        {
+            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            return db.Urunlers.Where(x => x.MarkaID == id && x.AktifllikDurumu == true).ToList();
+        }
+
+        public List<Dal.Urunler> UrunListeleByKategoriIdAndMarkaId(int kategoriId, int markaId)
+        {
+            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            return db.Urunlers.Where(x => x.UrunKategoriID == kategoriId && x.MarkaID == markaId && x.AktifllikDurumu == true).ToList();
+        }
+
+
 
     }
 }

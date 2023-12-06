@@ -4620,6 +4620,9 @@
     <Content Include="Yonetici\KullaniciUye.aspx" />
     <Content Include="Yonetici\KullaniciYonetim.aspx" />
     <Content Include="Yonetici\SifreUnuttumSayfa.aspx" />
+    <Content Include="Yonetici\UrunDuzenle.aspx" />
+    <Content Include="Yonetici\UrunEkleme.aspx" />
+    <Content Include="Yonetici\UrunYonetim.aspx" />
     <Content Include="Yonetici\vendor\amcharts\amcharts.js" />
     <Content Include="Yonetici\vendor\amcharts\ammap.js" />
     <Content Include="Yonetici\vendor\amcharts\amstock.js" />
@@ -8015,6 +8018,27 @@
     <Compile Include="Yonetici\SifreUnuttumSayfa.aspx.designer.cs">
       <DependentUpon>SifreUnuttumSayfa.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Yonetici\UrunDuzenle.aspx.cs">
+      <DependentUpon>UrunDuzenle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yonetici\UrunDuzenle.aspx.designer.cs">
+      <DependentUpon>UrunDuzenle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetici\UrunEkleme.aspx.cs">
+      <DependentUpon>UrunEkleme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yonetici\UrunEkleme.aspx.designer.cs">
+      <DependentUpon>UrunEkleme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetici\UrunYonetim.aspx.cs">
+      <DependentUpon>UrunYonetim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yonetici\UrunYonetim.aspx.designer.cs">
+      <DependentUpon>UrunYonetim.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Yonetici\YoneticiAna.Master.cs">
       <DependentUpon>YoneticiAna.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -8985,6 +9009,9 @@
       <Project>{7035bba4-40df-4598-92be-339ebce50bdd}</Project>
       <Name>Dal</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -16,6 +16,9 @@
             position: absolute !important;
             bottom: 0;
         }
+        .sidebar-hide .sidebar.sidebar-hide-to-small {
+            position: fixed !important;
+        }
     </style>
 
     <!-- ================= Favicon ================== -->
@@ -37,7 +40,7 @@
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
 
     <link href="assets/css/lib/helper.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -63,6 +66,16 @@
                             <ul>
                                 <li><a href="KullaniciYonetim.aspx">Kullanıcı Listesi</a></li>
                                 <li><a href="KullaniciEkleme.aspx">Kullanıcı Ekleme</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-layout-grid4-alt"></i>Ürün İşlemleri <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li><a href="UrunYonetim.aspx">Ürün Listesi</a></li>
+                                <li><a href="UrunEkleme.aspx">Ürün Ekleme</a></li>
+
                             </ul>
                         </li>
                         <li class="nav-logout-btn">

@@ -116,7 +116,7 @@
       <DependentUpon>EcommerceSitesi.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysdiagram.cs">
+    <Compile Include="UrunDetaylar.cs">
       <DependentUpon>EcommerceSitesi.tt</DependentUpon>
     </Compile>
     <Compile Include="Urunler.cs">

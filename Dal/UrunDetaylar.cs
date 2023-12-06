@@ -12,24 +12,22 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Kullanici
+    public partial class UrunDetaylar
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Kullanici()
+        public UrunDetaylar()
         {
             this.Urunlers = new HashSet<Urunler>();
         }
     
-        public int KullaniciID { get; set; }
-        public string Eposta { get; set; }
-        public string Sifre { get; set; }
-        public string Adi { get; set; }
-        public string Soyadi { get; set; }
-        public Nullable<System.DateTime> KayitTarihi { get; set; }
-        public Nullable<bool> AktiflikDurumu { get; set; }
-        public Nullable<int> YetkiTuruID { get; set; }
+        public int UrunDetayID { get; set; }
+        public string UrunBoyut { get; set; }
+        public string UrunRenk { get; set; }
+        public string UrunImage1 { get; set; }
+        public string UrunImage2 { get; set; }
+        public string UrunImage3 { get; set; }
+        public string UrunImage4 { get; set; }
     
-        public virtual KullaniciYetki KullaniciYetki { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Urunler> Urunlers { get; set; }
     }

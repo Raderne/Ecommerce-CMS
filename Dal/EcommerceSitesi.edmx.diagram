@@ -5,20 +5,21 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="782bfb70b2a9498c9501a4918def271c" Name="Diagram1">
-        <EntityTypeShape EntityType="EcommerceSitesiModel.Kullanici" Width="1.5" PointX="3" PointY="5" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.KullaniciYetki" Width="1.5" PointX="0.75" PointY="5.5" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.UserLog" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.UserLogTuru" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.EcommerceUser" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.Kullanici" Width="1.5" PointX="3" PointY="1.875" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.KullaniciYetki" Width="1.5" PointX="0.75" PointY="2.625" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.Markalar" Width="1.5" PointX="3" PointY="12.375" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.UrunDetaylar" Width="1.5" PointX="3" PointY="6.75" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.Urunler" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.UrunlerKategori" Width="1.5" PointX="3" PointY="10" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.UserLog" Width="1.5" PointX="8" PointY="7" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.UserLogTuru" Width="1.5" PointX="5.75" PointY="7.375" />
         <AssociationConnector Association="EcommerceSitesiModel.FK_Kullanici_KullaniciYetki" />
-        <AssociationConnector Association="EcommerceSitesiModel.FK_UserLog_UserLogTuru" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.EcommerceUser" Width="1.5" PointX="5.375" PointY="7.875" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.Markalar" Width="1.5" PointX="5.375" PointY="5.375" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.Urunler" Width="1.5" PointX="7.625" PointY="4" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.UrunlerKategori" Width="1.5" PointX="5.375" PointY="10.875" />
-        <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_EcommerceUsers" />
+        <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_Kullanici" />
         <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_Markalar" />
+        <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_UrunDetaylar" />
         <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_UrunlerKategori" />
+        <AssociationConnector Association="EcommerceSitesiModel.FK_UserLog_UserLogTuru" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

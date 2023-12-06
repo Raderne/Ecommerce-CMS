@@ -19,20 +19,20 @@ namespace Dal
         public Nullable<double> UrunFiyat { get; set; }
         public Nullable<double> UrunIndirimFiyat { get; set; }
         public Nullable<bool> isOnSale { get; set; }
-        public string UrunBoyut { get; set; }
         public Nullable<int> UrunReview { get; set; }
         public string UrunAciklama { get; set; }
-        public string Renk { get; set; }
         public Nullable<int> miktar { get; set; }
         public Nullable<bool> isNew { get; set; }
+        public string UrunResim { get; set; }
+        public Nullable<int> UrunDetayID { get; set; }
         public Nullable<int> UrunKategoriID { get; set; }
         public Nullable<int> MarkaID { get; set; }
         public Nullable<int> UserID { get; set; }
-        public string UrunResim { get; set; }
         public Nullable<bool> AktifllikDurumu { get; set; }
     
-        public virtual EcommerceUser EcommerceUser { get; set; }
+        public virtual Kullanici Kullanici { get; set; }
         public virtual Markalar Markalar { get; set; }
+        public virtual UrunDetaylar UrunDetaylar { get; set; }
         public virtual UrunlerKategori UrunlerKategori { get; set; }
     }
 }
