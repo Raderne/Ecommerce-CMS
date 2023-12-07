@@ -31,8 +31,8 @@ namespace BLL
             }
             else
             {
-                HttpContext.Current.Session["KullaniciID"] = result.EcommerceUserID;
-                HttpContext.Current.Session["KullaniciAdi"] = result.Name + " " + result.Surname;
+                HttpContext.Current.Session["UserID"] = result.EcommerceUserID;
+                HttpContext.Current.Session["UserAdi"] = result.Name + " " + result.Surname;
                 HttpContext.Current.Response.Redirect("./index.aspx");
                 return result;
             }

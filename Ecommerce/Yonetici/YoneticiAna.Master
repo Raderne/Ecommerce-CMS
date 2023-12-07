@@ -7,12 +7,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Focus - Bootstrap Admin Dashboard </title>
+    <title>Focus</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
-    <link href="./vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
-    <link href="./vendor/chartist/css/chartist.min.css" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png" />
+
+    <!-- Styles -->
+    <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet"/>
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet"/>
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/css/lib/helper.css" rel="stylesheet"/>
+    
+    <link href="./vendor/chartist/css/chartist.min.css" rel="stylesheet" />
+    <link href="./vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet" />
+
+    <link href="./css/style.css" rel="stylesheet"/>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -217,6 +225,11 @@
         <script src="./vendor/moment/moment.min.js"></script>
         <script src="./vendor/pg-calendar/js/pignose.calendar.min.js"></script>
 
+        <script src="assets/js/lib/bootstrap.min.js"></script>
+        <!-- bootstrap -->
+        <!-- jquery vendor -->
+        <script src="assets/js/lib/jquery.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
 
         <script src="./js/dashboard/dashboard-2.js"></script>
         <!-- Circle progress -->

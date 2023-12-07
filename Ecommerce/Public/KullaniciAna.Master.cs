@@ -13,13 +13,13 @@ namespace Ecommerce.Public.Ecommerce
         {
            if (!IsPostBack)
             {
-                if (Session["KullaniciID"] != null)
+                if (Session["UserID"] != null)
                 {
                     lbl_MenuAcount.Visible = false;
                     lbl_MenuAcount.Style.Add("display", "none");
 
                     lBtn_logout.Visible = true;
-                    lBtn_logout.Text = Session["KullaniciAdi"].ToString();
+                    lBtn_logout.Text = Session["UserAdi"].ToString();
                 }
                 else
                 {

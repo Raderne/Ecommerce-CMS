@@ -16,8 +16,8 @@ namespace Dal
     {
         public int UrunID { get; set; }
         public string UrunIsim { get; set; }
-        public Nullable<double> UrunFiyat { get; set; }
-        public Nullable<double> UrunIndirimFiyat { get; set; }
+        public Nullable<int> UrunFiyat { get; set; }
+        public Nullable<int> UrunIndirimFiyat { get; set; }
         public Nullable<bool> isOnSale { get; set; }
         public Nullable<int> UrunReview { get; set; }
         public string UrunAciklama { get; set; }

@@ -35,11 +35,18 @@ namespace BLL
             return dt;
         }
 
-        public bool UrunEkle(Dal.Urunler urun, Dal.UrunDetaylar urunDetaylar)
+        public bool UrunEkle(Dal.Urunler urun)
         {
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
-            db.UrunDetaylars.Add(urunDetaylar);
             db.Urunlers.Add(urun);
+            db.SaveChanges();
+            return true;
+        }
+
+        public bool UrunDetayEkle(Dal.UrunDetaylar urunDetay)
+        {
+            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            db.UrunDetaylars.Add(urunDetay);
             db.SaveChanges();
             return true;
         }
@@ -78,6 +85,12 @@ namespace BLL
         {
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
             return db.Urunlers.Where(x => x.UrunID == id).SingleOrDefault();
+        }
+
+        public Dal.UrunDetaylar UrunDetayGetir(int id)
+        {
+            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            return db.UrunDetaylars.Where(x => x.KullaniciID == id).SingleOrDefault();
         }
 
         public List<Dal.Urunler> UrunListeleByKategoriId(int id)

@@ -55,6 +55,7 @@
           <Property Name="UrunImage2" Type="nvarchar(max)" />
           <Property Name="UrunImage3" Type="nvarchar(max)" />
           <Property Name="UrunImage4" Type="nvarchar(max)" />
+          <Property Name="KullaniciID" Type="int" />
         </EntityType>
         <EntityType Name="Urunler">
           <Key>
@@ -62,8 +63,8 @@
           </Key>
           <Property Name="UrunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UrunIsim" Type="nvarchar(max)" />
-          <Property Name="UrunFiyat" Type="float" />
-          <Property Name="UrunIndirimFiyat" Type="float" />
+          <Property Name="UrunFiyat" Type="int" />
+          <Property Name="UrunIndirimFiyat" Type="int" />
           <Property Name="isOnSale" Type="bit" />
           <Property Name="UrunReview" Type="int" />
           <Property Name="UrunAciklama" Type="nvarchar(max)" />
@@ -302,6 +303,7 @@
           <Property Name="UrunImage3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UrunImage4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Urunlers" Relationship="EcommerceSitesiModel.FK_Urunler_UrunDetaylar" FromRole="UrunDetaylar" ToRole="Urunler" />
+          <Property Name="KullaniciID" Type="Int32" />
         </EntityType>
         <EntityType Name="Urunler">
           <Key>
@@ -309,8 +311,8 @@
           </Key>
           <Property Name="UrunID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UrunIsim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UrunFiyat" Type="Double" />
-          <Property Name="UrunIndirimFiyat" Type="Double" />
+          <Property Name="UrunFiyat" Type="Int32" />
+          <Property Name="UrunIndirimFiyat" Type="Int32" />
           <Property Name="isOnSale" Type="Boolean" />
           <Property Name="UrunReview" Type="Int32" />
           <Property Name="UrunAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -479,6 +481,7 @@
           <EntitySetMapping Name="UrunDetaylars">
             <EntityTypeMapping TypeName="EcommerceSitesiModel.UrunDetaylar">
               <MappingFragment StoreEntitySet="UrunDetaylar">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
                 <ScalarProperty Name="UrunImage4" ColumnName="UrunImage4" />
                 <ScalarProperty Name="UrunImage3" ColumnName="UrunImage3" />
                 <ScalarProperty Name="UrunImage2" ColumnName="UrunImage2" />

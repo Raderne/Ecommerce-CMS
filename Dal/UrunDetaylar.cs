@@ -27,6 +27,7 @@ namespace Dal
         public string UrunImage2 { get; set; }
         public string UrunImage3 { get; set; }
         public string UrunImage4 { get; set; }
+        public Nullable<int> KullaniciID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Urunler> Urunlers { get; set; }

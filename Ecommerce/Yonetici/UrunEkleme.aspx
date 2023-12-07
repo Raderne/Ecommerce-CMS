@@ -3,6 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png" />
+
+    <!-- Custom CSS -->
+    <style>
+        .image-size {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="card">
@@ -12,17 +20,17 @@
         <div class="card-body">
             <div class="basic-form">
                 <div>
-                    <div class="form-row card pt-2 pb-2 m-b-25 m-t-20 col-md-6">
-                        <div class="stat-widget-three">
-                            <div class="stat-icon bg-primary">
-                                <i class="ti-user"></i>
-                                <img src="#" style="display: none" />
+                    <div class="form-row m-b-100">
+                        <div class="image-size m-b-20">
+                            <img id="img_UrunResim" runat="server" src="https://via.placeholder.com/150" class="img-fluid" alt="Responsive image" />
+                        </div>
+                        <div class="input-group col-md-12">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Ürün Resim</span>
                             </div>
-                            <div class="stat-content">
-                                <label class="stat-digit">Ürün Resim</label>
-                                <div class="stat-text">
-                                    <input type="file" id="file_UrunResim" runat="server" class="form-control" />
-                                </div>
+                            <div class="custom-file">
+                                <asp:FileUpload ID="File_UrunResim" runat="server" class="custom-file-input image-input" />
+                                <label class="custom-file-label">Resim Seç...</label>
                             </div>
                         </div>
                     </div>
@@ -50,15 +58,15 @@
                         <div class="form-group col-md-6">
                             <div class="form-group">
                                 <label>Ürün Indirimli Fiyatı</label>
-                                <input type="number" id="txt_UrunIndirimFiyat" runat="server" class="form-control" disabled>
+                                <input type="number" id="txt_UrunIndirimFiyat" runat="server" class="form-control"  disabled value="0">
                             </div>
                             <div class="col-md-1"></div>
                             <div class="form-group row">
                                 <div class="col-sm-2">Indirim</div>
                                 <div class="col-sm-10">
                                     <div class="form-check">
-                                        <input class="form-check-input" id="checkbox_UrunIsOnSale" type="checkbox">
-                                        <label class="form-check-label" for="checkbox_UrunIsOnSale">
+                                        <input class="form-check-input sale-checkbox" runat="server" id="checkbox_UrunIsOnSale" type="checkbox">
+                                        <label class="form-check-label" for="ContentPlaceHolder1_checkbox_UrunIsOnSale">
                                             Ürün indirimde mi?
                                         </label>
                                     </div>
@@ -68,25 +76,50 @@
 
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                             <label>Ürün Kategori</label>
-                            <select id="inputState" class="form-control">
-                                <option selected="">Seç...</option>
-                                <asp:Literal ID="literal_urunKategori" runat="server"></asp:Literal>
-                            </select>
+                            <asp:DropDownList ID="select_Urunkategori" runat="server" class="form-control">
+                                <asp:ListItem Text="Seç..." Value="0"></asp:ListItem>
+                            </asp:DropDownList>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                             <label>Ürün Marka</label>
-                            <select class="form-control">
+                            <asp:DropDownList ID="select_UrunMarka" runat="server" class="form-control">
+                                   <asp:ListItem Text="Seç..." Value="0"></asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Ürün Boyut</label>
+                            <select id="select_UrunBoyut" runat="server" class="form-control">
                                 <option selected="">Seç...</option>
-                                <asp:Literal ID="literal_UrunMarka" runat="server"></asp:Literal>
+                                <option>Small</option>
+                                <option>Medium</option>
+                                <option>Large</option>
+                                <option>X-Large</option>
+                                <option>XX-Large</option>
+                                <option>XXX-Large</option>
                             </select>
                         </div>
-                        <div class="col-md-1"></div>
+                        <div class="col-md-3">
+                            <label>Ürün Renk</label>
+                            <select id="select_UrunRenk" runat="server" class="form-control">
+                                <option selected="">Seç...</option>
+                                <option>Siyah</option>
+                                <option>Beyaz</option>
+                                <option>Kırmızı</option>
+                                <option>Mavi</option>
+                                <option>Sarı</option>
+                                <option>Yeşil</option>
+                                <option>Mor</option>
+                                <option>Turuncu</option>
+                                <option>Gri</option>
+                                <option>Kahverengi</option>
+                            </select>
+                        </div>
                         <div class="form-group col-md-3">
                             <div>Yeni Ürün</div>
                             <div class="form-check form-control">
-                                <input class="form-check-input" id="checkbox_UrunIsNew" type="checkbox">
+                                <input class="form-check-input" id="checkbox_UrunIsNew" runat="server" type="checkbox">
                                 <label class="form-check-label" for="checkbox_UrunIsNew">
                                     Ürün Yeni mi?
                                 </label>
@@ -95,33 +128,97 @@
                     </div>
 
 
-                    <div class="form-row">
+                    <div class="form-row m-t-30">
                         <div class="col-md-12">
                             <h4>Ürün Resimleri</h4>
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="input-group col-md-3 card">
+                    <div class="form-row m-b-50">
+                        <div class="input-group col-md-6 h-25">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Resim 1</span>
                             </div>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                <label class="custom-file-label" for="inputGroupFile01">Resim Seç</label>
+                                <asp:FileUpload ID="File_UrunResim1" runat="server" class="custom-file-input image-input first-image-upload" />
+                                <label class="custom-file-label">Resim Seç...</label>
                             </div>
+                        </div>
+                        <div class="image-size col-md-6 d-flex justify-content-center">
+                            <img id="img_UrunResim1" runat="server" src="https://via.placeholder.com/150" class="img-fluid" alt="Responsive image" />
+                        </div>
+                    </div>
+                    <div class="form-row m-b-50">
+                        <div class="input-group col-md-6 h-25">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Resim 2</span>
+                            </div>
+                            <div class="custom-file">
+                                <asp:FileUpload ID="File_UrunResim2" runat="server" class="custom-file-input image-input" />
+                                <label class="custom-file-label">Resim Seç...</label>
+                            </div>
+                        </div>
+                        <div class="image-size col-md-6 d-flex justify-content-center">
+                            <img id="img_UrunResim2" runat="server" src="https://via.placeholder.com/150" class="img-fluid" alt="Responsive image" />
+                        </div>
+                    </div>
+                    <div class="form-row m-b-50">
+                        <div class="input-group col-md-6 h-25">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Resim 3</span>
+                            </div>
+                            <div class="custom-file">
+                                <asp:FileUpload ID="File_UrunResim3" runat="server" class="custom-file-input image-input" />
+                                <label class="custom-file-label">Resim Seç...</label>
+                            </div>
+                        </div>
+                        <div class="image-size col-md-6 d-flex justify-content-center">
+                            <img id="img_UrunResim3" runat="server" src="https://via.placeholder.com/150" class="img-fluid" alt="Responsive image" />
+                        </div>
+                    </div>
+                    <div class="form-row m-b-50">
+                        <div class="input-group col-md-6 h-25">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Resim 4</span>
+                            </div>
+                            <div class="custom-file">
+                                 <asp:FileUpload ID="File_UrunResim4" runat="server" class="custom-file-input image-input" />
+                                <label class="custom-file-label">Resim Seç...</label>
+                            </div>
+                        </div>
+                        <div class="image-size col-md-6 d-flex justify-content-center">
+                            <img id="img_UrunResim4" runat="server" src="https://via.placeholder.com/150" class="img-fluid" alt="Responsive image" />
                         </div>
                     </div>
 
                 </div>
             </div>
-            <button id="btn_UrunEkle" runat="server" class="btn btn-primary">Ürün Ekle</button>
+            <asp:Button ID="btn_UrunResimlerEkle" runat="server" Text="Ürün Resimler Yükle" class="btn btn-secondary w-100 m-b-30" OnClientClick="return handleFormSubmit();" OnClick="btn_UrunResimlerEkle_Click" />
+            <asp:Button ID="btn_UrunEkle" class="btn btn-primary w-100" runat="server" Text="Ürün Ekle" OnClick="btn_UrunEkle_Click" />
         </div>
     </div>
 
 
     <script>
-        let isOnSale = document.getElementById("checkbox_UrunIsOnSale");
+        function handleFormSubmit() {
+            // Your custom client-side form handling logic goes here
+
+            // For example, you can access the file upload control:
+            var fileInput = document.querySelector('.first-image-upload');
+            var fileName = fileInput.value;
+            var fileExtension = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
+
+            if (fileExtension === 'jpg' || fileExtension === 'png' || fileExtension === "jpeg") {
+                // Continue with the form submission
+                return true;
+            } else {
+                alert("Please select a valid JPG or PNG file.");
+                // Prevent the form from submitting
+                return false;
+            }
+        }
+
+        let isOnSale = document.querySelector(".sale-checkbox");
         let SalePrice = document.getElementById("ContentPlaceHolder1_txt_UrunIndirimFiyat");
 
         isOnSale.addEventListener("change", function () {
@@ -130,6 +227,26 @@
             } else {
                 SalePrice.disabled = true;
             }
+        });
+
+        let imageInputs = document.querySelectorAll(".image-input");
+        let imagePreviews = document.querySelectorAll(".img-fluid");
+        let imageLabels = document.querySelectorAll(".custom-file-label");
+
+        imageInputs.forEach((input, index) => {
+            input.addEventListener("change", function () {
+                let file = this.files[0];
+                if (file && (file.type === "image/png" || file.type === "image/jpeg" || file.type === "image/jpg")) {
+                    let reader = new FileReader();
+                    reader.onload = function (e) {
+                        imagePreviews[index].src = e.target.result;
+                    }
+                    imageLabels[index].innerHTML = file.name;
+                    reader.readAsDataURL(file);
+                } else {
+                    alert("Lütfen resim dosyası seçiniz.");
+                }
+            });
         });
     </script>
 </asp:Content>

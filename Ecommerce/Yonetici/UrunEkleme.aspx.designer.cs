@@ -15,13 +15,22 @@ namespace Ecommerce.Yonetici
     {
 
         /// <summary>
-        /// file_UrunResim control.
+        /// img_UrunResim control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile file_UrunResim;
+        protected global::System.Web.UI.HtmlControls.HtmlImage img_UrunResim;
+
+        /// <summary>
+        /// File_UrunResim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload File_UrunResim;
 
         /// <summary>
         /// txt_UrunIsim control.
@@ -69,22 +78,139 @@ namespace Ecommerce.Yonetici
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txt_UrunIndirimFiyat;
 
         /// <summary>
-        /// literal_urunKategori control.
+        /// checkbox_UrunIsOnSale control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal literal_urunKategori;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox checkbox_UrunIsOnSale;
 
         /// <summary>
-        /// literal_UrunMarka control.
+        /// select_Urunkategori control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal literal_UrunMarka;
+        protected global::System.Web.UI.WebControls.DropDownList select_Urunkategori;
+
+        /// <summary>
+        /// select_UrunMarka control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList select_UrunMarka;
+
+        /// <summary>
+        /// select_UrunBoyut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect select_UrunBoyut;
+
+        /// <summary>
+        /// select_UrunRenk control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect select_UrunRenk;
+
+        /// <summary>
+        /// checkbox_UrunIsNew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox checkbox_UrunIsNew;
+
+        /// <summary>
+        /// File_UrunResim1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload File_UrunResim1;
+
+        /// <summary>
+        /// img_UrunResim1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage img_UrunResim1;
+
+        /// <summary>
+        /// File_UrunResim2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload File_UrunResim2;
+
+        /// <summary>
+        /// img_UrunResim2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage img_UrunResim2;
+
+        /// <summary>
+        /// File_UrunResim3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload File_UrunResim3;
+
+        /// <summary>
+        /// img_UrunResim3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage img_UrunResim3;
+
+        /// <summary>
+        /// File_UrunResim4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload File_UrunResim4;
+
+        /// <summary>
+        /// img_UrunResim4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage img_UrunResim4;
+
+        /// <summary>
+        /// btn_UrunResimlerEkle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_UrunResimlerEkle;
 
         /// <summary>
         /// btn_UrunEkle control.
@@ -93,6 +219,6 @@ namespace Ecommerce.Yonetici
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btn_UrunEkle;
+        protected global::System.Web.UI.WebControls.Button btn_UrunEkle;
     }
 }
