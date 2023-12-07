@@ -4,21 +4,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png" />
     <!-- Datatable -->
     <link href="./vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
-    <!-- Custom Stylesheet -->
-    <link href="./css/style.css" rel="stylesheet" />
 
-    <style>
-        body{
-            width: 100vw !important;
-        }
-        .header{
-            padding: 0 15rem 0 2rem !important;
-        }
-        .nav-control{
-            right: auto !important;
-            left: 0 !important;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="col-12">
@@ -40,14 +26,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <%--<tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                            </tr>--%>
                             <asp:Literal ID="Literal_UrunlerListele" runat="server"></asp:Literal>
                         </tbody>
                         <tfoot>

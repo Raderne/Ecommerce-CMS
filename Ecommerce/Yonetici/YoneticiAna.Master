@@ -6,321 +6,220 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Focus - Bootstrap Admin Dashboard </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <link href="./vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <link href="./vendor/chartist/css/chartist.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
 
-    <title>Focus Admin</title>
-
-    <style>
-        .sidebar ul .nav-logout-btn:last-child {
-            width: 100%;
-            position: absolute !important;
-            bottom: 0;
-        }
-        .sidebar-hide .sidebar.sidebar-hide-to-small {
-            position: fixed !important;
-        }
-    </style>
-
-    <!-- ================= Favicon ================== -->
-    <!-- Standard -->
-    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
-    <!-- Retina iPad Touch Icon-->
-    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
-    <!-- Retina iPhone Touch Icon-->
-    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
-    <!-- Standard iPad Touch Icon-->
-    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
-    <!-- Standard iPhone Touch Icon-->
-    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
-
-    <!-- Styles -->
-    <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
-    <link href="assets/css/lib/menubar/sidebar.css" rel="stylesheet">
-    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
-
-    <link href="assets/css/lib/helper.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
-            <div class="nano">
-                <div class="nano-content">
-                    <div class="logo">
-                        <a href="index.aspx">
-                            <!-- <img src="assets/images/logo.png" alt="" /> -->
-                            <span>ADMIN</span></a>
+        <!--*******************
+             Preloader start
+         ********************-->
+        <div id="preloader">
+            <div class="sk-three-bounce">
+                <div class="sk-child sk-bounce1"></div>
+                <div class="sk-child sk-bounce2"></div>
+                <div class="sk-child sk-bounce3"></div>
+            </div>
+        </div>
+        <!--*******************
+            Preloader end
+        ********************-->
+
+
+        <!--**********************************
+            Main wrapper start
+        ***********************************-->
+        <div id="main-wrapper">
+
+            <!--**********************************
+                Nav header start
+            ***********************************-->
+            <div class="nav-header">
+                <a href="index.aspx" class="brand-logo">
+                    <img class="logo-abbr" src="./images/logo.png" alt="">
+                    <img class="logo-compact" src="./images/logo-text.png" alt="">
+                    <img class="brand-title" src="./images/logo-text.png" alt="">
+                </a>
+
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
                     </div>
-                    <ul>
-                        <li class="label">Main</li>
-                        <li class="active"><a class="sidebar-sub-toggle">
-                            <i class="ti-home"></i>Dashboard</a>
-                        </li>
-                        <li id="LBtn_kullaniciIslem" runat="server">
-                            <a class="sidebar-sub-toggle">
-                                <i class="ti-bar-chart-alt"></i>Kullanıcı İşlemleri <span class="sidebar-collapse-icon ti-angle-down"></span>
+                </div>
+            </div>
+            <!--**********************************
+                Nav header end
+            ***********************************-->
+
+            <!--**********************************
+                Header start
+            ***********************************-->
+            <div class="header">
+                <div class="header-content">
+                    <nav class="navbar navbar-expand">
+                        <div class="collapse navbar-collapse justify-content-between">
+                            <div class="header-left">
+                                <div class="dashboard_bar">
+                                    Yönetici Paneli
+                                </div>
+                            </div>
+                            <ul class="navbar-nav header-right">
+                                <li class="nav-item dropdown header-profile">
+                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                        <asp:Label ID="lbl_KullaniciAdi" runat="server" Text="Label"></asp:Label>
+                                        <i class="ti-angle-down f-s-10"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="./app-profile.html" class="dropdown-item">
+                                            <i class="icon-user"></i>
+                                            <span class="ml-2">Profile </span>
+                                        </a>
+                                        <%--<a href="./email-inbox.html" class="dropdown-item">
+                                            <i class="icon-envelope-open"></i>
+                                            <span class="ml-2">Inbox </span>
+                                        </a>--%>
+                                        
+                                        <asp:LinkButton ID="Killanici_cikis" class="dropdown-item" runat="server" OnClick="Sidebar_Logout_Click">
+                                            <i class="ti-power-off"></i>
+                                            <span class="ml-2">Logout</span>
+                                        </asp:LinkButton>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!--**********************************
+                Header end ti-comment-alt
+            ***********************************-->
+
+            <!--**********************************
+                Sidebar start
+            ***********************************-->
+            <div class="quixnav">
+                <div class="quixnav-scroll">
+                    <ul class="metismenu" id="menu">
+                        <li class="nav-label first">Main Menu</li>
+
+                        <li><a href="./index.aspx" aria-expanded="false">
+                            <i class="icon icon-single-04"></i>
+                            <span class="nav-text">Dashboard</span>
                             </a>
-                            <ul>
+                        </li>
+
+                        <li class="nav-label">Kullancılar</li>
+                        <li id="LBtn_kullaniciIslem" runat="server">
+                            <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                                <i class="icon icon-app-store"></i>
+                                <span class="nav-text">Kullanıcı İşlemleri</span>
+                            </a>
+                            <ul aria-expanded="false">
                                 <li><a href="KullaniciYonetim.aspx">Kullanıcı Listesi</a></li>
                                 <li><a href="KullaniciEkleme.aspx">Kullanıcı Ekleme</a></li>
                             </ul>
                         </li>
+                        
+                        <li class="nav-label">Ürünler</li>
                         <li>
-                            <a class="sidebar-sub-toggle">
-                                <i class="ti-layout-grid4-alt"></i>Ürün İşlemleri <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                                <i class="icon icon-world-2"></i>
+                                <span class="nav-text">Ürün İşlemleri</span>
                             </a>
-                            <ul>
+                            <ul aria-expanded="false">
                                 <li><a href="UrunYonetim.aspx">Ürün Listesi</a></li>
                                 <li><a href="UrunEkleme.aspx">Ürün Ekleme</a></li>
-
                             </ul>
                         </li>
+
                         <li class="nav-logout-btn">
                             <asp:LinkButton ID="Sidebar_Logout" runat="server" OnClick="Sidebar_Logout_Click">
-                                <i class="ti-close"></i>Logout
+                                <i class="ti-close"></i>
+                                <span class="nav-text">Logout</span>
                             </asp:LinkButton>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
-        <!-- /# sidebar -->
+            <!--**********************************
+                Sidebar end
+            ***********************************-->
 
-
-        <div class="header">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="float-left">
-                            <div class="nav-control">
-                                <div class="hamburger sidebar-toggle">
-                                    <span class="line"></span>
-                                    <span class="line"></span>
-                                    <span class="line"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="float-right">
-                            <ul>
-                                <%--<li class="header-icon dib"><i class="ti-bell"></i>
-                                    <div class="drop-down">
-                                        <div class="dropdown-content-heading">
-                                            <span class="text-left">Recent Notifications</span>
-                                        </div>
-                                        <div class="dropdown-content-body">
-                                            <ul>
-                                                <li>
-                                                    <a href="#">
-                                                        <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                        <div class="notification-content">
-                                                            <small class="notification-timestamp pull-right">02:34 PM</small>
-                                                            <div class="notification-heading">Mr. John</div>
-                                                            <div class="notification-text">5 members joined today </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                        <div class="notification-content">
-                                                            <small class="notification-timestamp pull-right">02:34 PM</small>
-                                                            <div class="notification-heading">Mariam</div>
-                                                            <div class="notification-text">likes a photo of you</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                        <div class="notification-content">
-                                                            <small class="notification-timestamp pull-right">02:34 PM</small>
-                                                            <div class="notification-heading">Tasnim</div>
-                                                            <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                        <div class="notification-content">
-                                                            <small class="notification-timestamp pull-right">02:34 PM</small>
-                                                            <div class="notification-heading">Mr. John</div>
-                                                            <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="text-center">
-                                                    <a href="#" class="more-link">See All</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="header-icon dib"><i class="ti-email"></i>
-                                    <div class="drop-down">
-                                        <div class="dropdown-content-heading">
-                                            <span class="text-left">2 New Messages</span>
-                                            <a href="email.html"><i class="ti-pencil-alt pull-right"></i></a>
-                                        </div>
-                                        <div class="dropdown-content-body">
-                                            <ul>
-                                                <li class="notification-unread">
-                                                    <a href="#">
-                                                        <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/1.jpg" alt="" />
-                                                        <div class="notification-content">
-                                                            <small class="notification-timestamp pull-right">02:34 PM</small>
-                                                            <div class="notification-heading">Michael Qin</div>
-                                                            <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="notification-unread">
-                                                    <a href="#">
-                                                        <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                                                        <div class="notification-content">
-                                                            <small class="notification-timestamp pull-right">02:34 PM</small>
-                                                            <div class="notification-heading">Mr. John</div>
-                                                            <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                        <div class="notification-content">
-                                                            <small class="notification-timestamp pull-right">02:34 PM</small>
-                                                            <div class="notification-heading">Michael Qin</div>
-                                                            <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                                                        <div class="notification-content">
-                                                            <small class="notification-timestamp pull-right">02:34 PM</small>
-                                                            <div class="notification-heading">Mr. John</div>
-                                                            <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="text-center">
-                                                    <a href="#" class="more-link">See All</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>--%>
-                                <li class="header-icon dib">
-                                    <span class="user-avatar">
-                                        <asp:Label ID="lbl_KullaniciAdi" runat="server" Text="Label"></asp:Label>
-                                        <i class="ti-angle-down f-s-10"></i>
-                                    </span>
-                                    <div class="drop-down dropdown-profile">
-                                        <%--<div class="dropdown-content-heading">
-                                            <span class="text-left">Upgrade Now</span>
-                                            <p class="trial-day">30 Days Trail</p>
-                                        </div>--%>
-                                        <div class="dropdown-content-body">
-                                            <ul>
-                                                <li><a href="#"><i class="ti-user"></i><span>Profile</span></a></li>
-
-                                                <%--                                                <li><a href="#"><i class="ti-email"></i><span>Inbox</span></a></li>
-                                                <li><a href="#"><i class="ti-settings"></i><span>Setting</span></a></li>
-
-                                                <li><a href="#"><i class="ti-lock"></i><span>Lock Screen</span></a></li>--%>
-                                                <li>
-                                                    <asp:LinkButton ID="Killanici_cikis" runat="server" OnClick="Sidebar_Logout_Click">
-                                                        <i class="ti-power-off"></i><span>Logout</span>
-                                                    </asp:LinkButton>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="content-wrap">
-            <div class="main">
+            <!--**********************************
+                Content body start
+            ***********************************-->
+            <div class="content-body">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-8 p-r-0 title-margin-right">
-                            <div class="page-header">
-                                <div class="page-title">
-                                    <h1>Merhaba, <asp:Label ID="lbl_MainContent_Name" runat="server" Text=""></asp:Label> <span>Hoş Geldiniz </span></h1>
-                                </div>
+                    <div class="row page-titles mx-0">
+                        <div class="col-sm-6 p-md-0">
+                            <div class="welcome-text">
+                                 <h4>Merhaba, <asp:Label ID="lbl_MainContent_Name" runat="server" Text=""></asp:Label> <span>Hoş Geldiniz </span></h4>
+                                <p class="mb-0">Your business dashboard</p>
                             </div>
                         </div>
-                        <!-- /# column -->
-                        <%--<div class="col-lg-4 p-l-0 title-margin-left">
-                            <div class="page-header">
-                                <div class="page-title">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">UI-Blank</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>--%>
-                        <!-- /# column -->
                     </div>
-                    <!-- /# row -->
-                    <section id="main-content">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <%-- Main Content --%>
-                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
-                                <div id="extra-area-chart"></div>
-                                <div id="morris-line-chart"></div>
-                                <div class="footer">
-                                    <p>2023 © Admin Board. - <a href="../public/index.aspx">Ecommerce.com</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+
                 </div>
             </div>
+            <!--**********************************
+                Content body end
+            ***********************************-->
+
+
+            <!--**********************************
+                Footer start
+            ***********************************-->
+            <div class="footer">
+                <div class="copyright">
+                    <p>2023 © Admin Board. - <a href="../public/index.aspx">Ecommerce.com</a></p>
+                </div>
+            </div>
+            <!--**********************************
+                Footer end
+            ***********************************-->
+
+            <!--**********************************
+               Support ticket button start
+            ***********************************-->
+
+            <!--**********************************
+               Support ticket button end
+            ***********************************-->
+
+
         </div>
+        <!--**********************************
+            Main wrapper end
+        ***********************************-->
+
+        <!--**********************************
+            Scripts
+        ***********************************-->
+        <!-- Required vendors -->
+        <script src="./vendor/global/global.min.js"></script>
+        <script src="./js/quixnav-init.js"></script>
+        <script src="./js/custom.min.js"></script>
+
+        <script src="./vendor/chartist/js/chartist.min.js"></script>
+
+        <script src="./vendor/moment/moment.min.js"></script>
+        <script src="./vendor/pg-calendar/js/pignose.calendar.min.js"></script>
 
 
-
-        <%--<div id="search">
-            <button type="button" class="close">×</button>
-            <form>
-                <input type="search" value="" placeholder="type keyword(s) here" />
-                <button type="submit" class="btn btn-primary">Search</button>
-            </form>
-        </div>--%>
-        <!-- jquery vendor -->
-        <script src="assets/js/lib/jquery.min.js"></script>
-        <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
-        <!-- nano scroller -->
-        <script src="assets/js/lib/menubar/sidebar.js"></script>
-        <script src="assets/js/lib/preloader/pace.min.js"></script>
-        <!-- sidebar -->
-        <script src="assets/js/lib/bootstrap.min.js">
-  
-
-        </script>
-        <!-- bootstrap -->
-
-        <script src="assets/js/lib/morris-chart/raphael-min.js"></script>
-        <script src="assets/js/lib/morris-chart/morris.js"></script>
-        <script src="assets/js/lib/morris-chart/morris-init.js"></script>
-
-
-        <script src="assets/js/scripts.js"></script>
-        <!-- scripit init-->
+        <script src="./js/dashboard/dashboard-2.js"></script>
+        <!-- Circle progress -->
     </form>
 </body>
 </html>

@@ -97,21 +97,20 @@
 
                     <div class="form-row">
                         <div class="col-md-12">
-                            <h4>Ürün Özellikleri</h4>
+                            <h4>Ürün Resimleri</h4>
                         </div>
-                        <%--remove this and add images inputs--%>
-                         <div class="form-group col-md-6">
-                             <label>Ürün Renk</label>
-                             <select class="form-control">
-                                 <option selected="">Seç...</option>
-                                 <option>Kırmızı</option>
-                                 <option>Mavi</option>
-                                 <option>Siyah</option>
-                                 <option>Beyaz</option>
-                                 <option>Sarı</option>
-                                 <option>Yeşil</option>
-                             </select>
-                         </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group col-md-3 card">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Resim 1</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                <label class="custom-file-label" for="inputGroupFile01">Resim Seç</label>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

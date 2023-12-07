@@ -33,24 +33,6 @@ namespace Ecommerce.Yonetici
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// LBtn_kullaniciIslem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LBtn_kullaniciIslem;
-
-        /// <summary>
-        /// Sidebar_Logout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Sidebar_Logout;
-
-        /// <summary>
         /// lbl_KullaniciAdi control.
         /// </summary>
         /// <remarks>
@@ -67,6 +49,24 @@ namespace Ecommerce.Yonetici
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton Killanici_cikis;
+
+        /// <summary>
+        /// LBtn_kullaniciIslem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LBtn_kullaniciIslem;
+
+        /// <summary>
+        /// Sidebar_Logout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Sidebar_Logout;
 
         /// <summary>
         /// lbl_MainContent_Name control.

@@ -32,7 +32,7 @@
                             Admin		
                         </label>
                     </div>
-                    <asp:Button ID="btn_KullaniciEkleme" runat="server" class="btn btn-default" Text="Ekle" OnClick="btn_KullaniciEkleme_Click" />
+                    <asp:Button ID="btn_KullaniciEkleme" runat="server" class="btn btn-dark pl-5 pr-5" Text="Ekle" OnClick="btn_KullaniciEkleme_Click" />
                     <asp:Label ID="lbl_EklemeSonuc" runat="server" Text="Sonuç"></asp:Label>
                 </div>
             </div>
