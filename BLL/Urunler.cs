@@ -14,7 +14,7 @@ namespace BLL
             return db.Urunlers.Where(x => x.AktifllikDurumu == true).ToList();
         }
 
-        public DataTable UrunlerList()
+        public DataTable UrunlerList(int id)
         {   
             DataTable dt = new DataTable();
             dt.Columns.Add("Urun Resim");
@@ -25,7 +25,7 @@ namespace BLL
             dt.Columns.Add("Urun Detaylar");
 
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
-            var urunler = db.Urunlers.Where(x => x.AktifllikDurumu == true).ToList();
+            var urunler = db.Urunlers.Where(x => x.AktifllikDurumu == true && x.UserID == id).ToList();
             foreach (var item in urunler)
             {
                 var urunKategori = db.UrunlerKategoris.Where(x => x.UrunKategoriID == item.UrunKategoriID).SingleOrDefault();

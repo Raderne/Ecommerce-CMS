@@ -14,7 +14,8 @@ namespace Ecommerce.Yonetici
         {
            if (!IsPostBack)
             {
-                DataTable dt = new BLL.Urunler().UrunlerList();
+                int id = Convert.ToInt32(Session["KullaniciID"]);
+                DataTable dt = new BLL.Urunler().UrunlerList(id);
                 String htmlTable = "";
                 foreach (DataRow item in dt.Rows)
                 {

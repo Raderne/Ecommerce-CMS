@@ -14,13 +14,21 @@
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet"/>
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet"/>
-    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/css/lib/helper.css" rel="stylesheet"/>
+    <%--<link href="assets/css/lib/bootstrap.min.css" rel="stylesheet"/>--%>
     
     <link href="./vendor/chartist/css/chartist.min.css" rel="stylesheet" />
     <link href="./vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet" />
 
     <link href="./css/style.css" rel="stylesheet"/>
+
+    <style>
+        .m-b-30 {
+            margin-top: 20px !important;
+            margin-bottom: 30px !important;
+        }
+
+
+    </style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -84,7 +92,7 @@
                             <ul class="navbar-nav header-right">
                                 <li class="nav-item dropdown header-profile">
                                     <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                        <asp:Label ID="lbl_KullaniciAdi" runat="server" Text="Label"></asp:Label>
+                                        <asp:Label ID="lbl_KullaniciAdi" runat="server" Text=""></asp:Label>
                                         <i class="ti-angle-down f-s-10"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
@@ -96,7 +104,6 @@
                                             <i class="icon-envelope-open"></i>
                                             <span class="ml-2">Inbox </span>
                                         </a>--%>
-                                        
                                         <asp:LinkButton ID="Killanici_cikis" class="dropdown-item" runat="server" OnClick="Sidebar_Logout_Click">
                                             <i class="ti-power-off"></i>
                                             <span class="ml-2">Logout</span>
@@ -215,7 +222,13 @@
         <!--**********************************
             Scripts
         ***********************************-->
-        <!-- Required vendors -->
+
+        <!-- bootstrap -->
+       <%-- <script src="assets/js/lib/jquery.min.js"></script>
+        <script src="assets/js/lib/bootstrap.min.js"></script>
+        <!-- jquery vendor -->
+        <script src="assets/js/scripts.js"></script>--%>
+
         <script src="./vendor/global/global.min.js"></script>
         <script src="./js/quixnav-init.js"></script>
         <script src="./js/custom.min.js"></script>
@@ -225,14 +238,11 @@
         <script src="./vendor/moment/moment.min.js"></script>
         <script src="./vendor/pg-calendar/js/pignose.calendar.min.js"></script>
 
-        <script src="assets/js/lib/bootstrap.min.js"></script>
-        <!-- bootstrap -->
-        <!-- jquery vendor -->
-        <script src="assets/js/lib/jquery.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
 
         <script src="./js/dashboard/dashboard-2.js"></script>
         <!-- Circle progress -->
+
+
     </form>
 </body>
 </html>
