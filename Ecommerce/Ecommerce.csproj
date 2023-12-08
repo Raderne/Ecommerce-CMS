@@ -243,7 +243,9 @@
     <Content Include="Public\Ecommerce\dist\register.html" />
     <Content Include="Public\index.aspx" />
     <Content Include="Public\login.aspx" />
+    <Content Include="Public\product.aspx" />
     <Content Include="Public\register.aspx" />
+    <Content Include="Public\UrunlerListe.aspx" />
     <Content Include="Web.config" />
     <Content Include="Yonetici\admin\theme\app-calender.html" />
     <Content Include="Yonetici\admin\theme\app-email.html" />
@@ -7946,7 +7948,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Public\classNotes.cs" />
     <Compile Include="Public\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -7968,6 +7969,13 @@
     <Compile Include="Public\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Public\product.aspx.cs">
+      <DependentUpon>product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Public\product.aspx.designer.cs">
+      <DependentUpon>product.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Public\register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -7975,7 +7983,13 @@
     <Compile Include="Public\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Yonetici\ClassNotes.cs" />
+    <Compile Include="Public\UrunlerListe.aspx.cs">
+      <DependentUpon>UrunlerListe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Public\UrunlerListe.aspx.designer.cs">
+      <DependentUpon>UrunlerListe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Yonetici\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
