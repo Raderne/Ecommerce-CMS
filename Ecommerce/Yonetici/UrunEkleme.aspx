@@ -14,6 +14,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="card">
         <div class="card-header">
             <h1 class="card-title">Ürün Ekleme</h1>
@@ -21,71 +22,6 @@
         <div class="card-body">
             <div class="basic-form">
                 <div>
-                    <div class="form-row m-t-30">
-                        <div class="col-md-12">
-                            <h4>Ürün Resimleri</h4>
-                        </div>
-                    </div>
-
-                    <div class="form-row m-b-50">
-                        <div class="input-group col-md-6 h-25">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Resim 1</span>
-                            </div>
-                            <div class="custom-file">
-                                <asp:FileUpload ID="File_UrunResim1" runat="server" class="custom-file-input image-input first-image-upload" />
-                                <label class="custom-file-label">Resim Seç...</label>
-                            </div>
-                        </div>
-                        <div class="image-size col-md-6 d-flex justify-content-center">
-                            <img id="img_UrunResim1" runat="server" src="https://via.placeholder.com/150" class="img-fluid" alt="Responsive image" />
-                        </div>
-                    </div>
-                    <div class="form-row m-b-50">
-                        <div class="input-group col-md-6 h-25">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Resim 2</span>
-                            </div>
-                            <div class="custom-file">
-                                <asp:FileUpload ID="File_UrunResim2" runat="server" class="custom-file-input image-input" />
-                                <label class="custom-file-label">Resim Seç...</label>
-                            </div>
-                        </div>
-                        <div class="image-size col-md-6 d-flex justify-content-center">
-                            <img id="img_UrunResim2" runat="server" src="https://via.placeholder.com/150" class="img-fluid" alt="Responsive image" />
-                        </div>
-                    </div>
-                    <div class="form-row m-b-50">
-                        <div class="input-group col-md-6 h-25">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Resim 3</span>
-                            </div>
-                            <div class="custom-file">
-                                <asp:FileUpload ID="File_UrunResim3" runat="server" class="custom-file-input image-input" />
-                                <label class="custom-file-label">Resim Seç...</label>
-                            </div>
-                        </div>
-                        <div class="image-size col-md-6 d-flex justify-content-center">
-                            <img id="img_UrunResim3" runat="server" src="https://via.placeholder.com/150" class="img-fluid" alt="Responsive image" />
-                        </div>
-                    </div>
-                    <div class="form-row m-b-50">
-                        <div class="input-group col-md-6 h-25">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Resim 4</span>
-                            </div>
-                            <div class="custom-file">
-                                <asp:FileUpload ID="File_UrunResim4" runat="server" class="custom-file-input image-input" />
-                                <label class="custom-file-label">Resim Seç...</label>
-                            </div>
-                        </div>
-                        <div class="image-size col-md-6 d-flex justify-content-center">
-                            <img id="img_UrunResim4" runat="server" src="https://via.placeholder.com/150" class="img-fluid" alt="Responsive image" />
-                        </div>
-                    </div>
-
-                    <asp:Button ID="btn_UrunResimlerEkle" runat="server" Text="Ürün Resimler Yükle" class="btn btn-secondary m-b-30" OnClientClick="return handleFormSubmit();" OnClick="btn_UrunResimlerEkle_Click" />
-
                     <div class="form-row m-t-30">
                         <div class="col-md-12">
                             <h4>Ürün Detaylar</h4>
@@ -199,32 +135,79 @@
                         </div>
                     </div>
 
+                    <div class="form-row m-t-30">
+                        <div class="col-md-12">
+                            <h4>Ürün Resimleri</h4>
+                        </div>
+                    </div>
+
+                    <div class="form-row m-b-50">
+                        <div class="input-group col-md-6 h-25">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Resim 1</span>
+                            </div>
+                            <div class="custom-file">
+                                <asp:FileUpload ID="File_UrunResim1" runat="server" class="custom-file-input image-input first-image-upload" />
+                                <label class="custom-file-label">Resim Seç...</label>
+                            </div>
+                        </div>
+                        <div class="image-size col-md-6 d-flex justify-content-center">
+                            <img id="img_UrunResim1" runat="server" src="https://via.placeholder.com/150" class="img-fluid" alt="Responsive image" />
+                        </div>
+                    </div>
+                    <div class="form-row m-b-50">
+                        <div class="input-group col-md-6 h-25">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Resim 2</span>
+                            </div>
+                            <div class="custom-file">
+                                <asp:FileUpload ID="File_UrunResim2" runat="server" class="custom-file-input image-input" />
+                                <label class="custom-file-label">Resim Seç...</label>
+                            </div>
+                        </div>
+                        <div class="image-size col-md-6 d-flex justify-content-center">
+                            <img id="img_UrunResim2" runat="server" src="https://via.placeholder.com/150" class="img-fluid" alt="Responsive image" />
+                        </div>
+                    </div>
+                    <div class="form-row m-b-50">
+                        <div class="input-group col-md-6 h-25">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Resim 3</span>
+                            </div>
+                            <div class="custom-file">
+                                <asp:FileUpload ID="File_UrunResim3" runat="server" class="custom-file-input image-input" />
+                                <label class="custom-file-label">Resim Seç...</label>
+                            </div>
+                        </div>
+                        <div class="image-size col-md-6 d-flex justify-content-center">
+                            <img id="img_UrunResim3" runat="server" src="https://via.placeholder.com/150" class="img-fluid" alt="Responsive image" />
+                        </div>
+                    </div>
+                    <div class="form-row m-b-50">
+                        <div class="input-group col-md-6 h-25">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Resim 3</span>
+                            </div>
+                            <div class="custom-file">
+                                <asp:FileUpload ID="File_UrunResim4" runat="server" class="custom-file-input image-input" />
+                                <label class="custom-file-label">Resim Seç...</label>
+                            </div>
+                        </div>
+                        <div class="image-size col-md-6 d-flex justify-content-center">
+                            <img id="img_UrunResim4" runat="server" src="https://via.placeholder.com/150" class="img-fluid" alt="Responsive image" />
+                        </div>
+                    </div>
+
+
                 </div>
+
+
             </div>
             <asp:Button ID="btn_UrunEkle" class="btn btn-primary w-100" runat="server" Text="Ürün Ekle" OnClick="btn_UrunEkle_Click" />
         </div>
     </div>
 
-
     <script>
-        function handleFormSubmit() {
-            // Your custom client-side form handling logic goes here
-
-            // For example, you can access the file upload control:
-            var fileInput = document.querySelector('.first-image-upload');
-            var fileName = fileInput.value;
-            var fileExtension = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
-
-            if (fileExtension === 'jpg' || fileExtension === 'png' || fileExtension === "jpeg") {
-                // Continue with the form submission
-                return true;
-            } else {
-                alert("Please select a valid JPG or PNG file.");
-                // Prevent the form from submitting
-                return false;
-            }
-        }
-
         let isOnSale = document.querySelector(".sale-checkbox");
         let SalePrice = document.getElementById("ContentPlaceHolder1_txt_UrunIndirimFiyat");
 

@@ -11,6 +11,13 @@
             height: 150px;
             margin-bottom: 20px;
         }
+
+        .btn_guncelle {
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-right: 10px;
+            margin-top: 30px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -84,7 +91,7 @@
                         </div>
                     </div>
                     <div class="form-row m-b-30">
-                        <asp:Button ID="btn_resimlerGuncelle" runat="server" Text="Ürün Resimler Yükle" class="btn btn-secondary" OnClientClick="return handleFormSubmit();" />
+                        <asp:Button ID="btn_resimlerGuncelle" runat="server" Text="Ürün Resimler Yükle" class="btn btn-secondary" OnClientClick="return handleFormSubmit();" OnClick="btn_resimlerGuncelle_Click" />
                     </div>
 
 
@@ -196,7 +203,8 @@
                     </div>
                 </div>
             </div>
-            <asp:Button ID="btn_UrunGuncelle" class="btn btn-primary w-100" runat="server" Text="Ürün Güncelle" />
+            <asp:Button ID="btn_UrunGuncelle" class="btn btn-primary btn_guncelle" runat="server" Text="Ürün Güncelle" OnClick="btn_UrunGuncelle_Click" />
+            <asp:Button ID="btn_Cancel" runat="server" Text="iptal et" class="btn btn-rounded btn-outline-warning btn_guncelle" OnClick="btn_Cancel_Click" />
         </div>
     </div>
 

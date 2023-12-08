@@ -64,7 +64,7 @@ namespace Ecommerce.Yonetici
                 }
 
                 Dal.Urunler urun = new Dal.Urunler();
-                Dal.UrunDetaylar urunDetaylar = new BLL.Urunler().UrunDetayGetir(kullaniciID);
+                Dal.UrunDetaylar urunDetaylar = new Dal.UrunDetaylar();
                 urun.UrunIsim = urunIsim;
                 urun.UrunAciklama = urunAciklama;
                 urun.UrunFiyat = int.Parse(urunFiyat);
@@ -77,14 +77,25 @@ namespace Ecommerce.Yonetici
                 urun.UrunIndirimFiyat = urunIndirimFiyat;
                 urun.AktifllikDurumu = true;
                 urun.UserID = kullaniciID;
-                urun.UrunDetayID = urunDetaylar.UrunDetayID;
 
-                new BLL.Urunler().UrunEkle(urun);
-                Response.Redirect("UrunYonetim.aspx");
+
+                bool urunDetayElemeSonuc = UploadImages(urunDetaylar);
+
+                if (urunDetayElemeSonuc)
+                {
+                    urun.UrunDetayID = urunDetaylar.UrunDetayID;
+                    new BLL.Urunler().UrunEkle(urun);
+                    Response.Redirect("UrunYonetim.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Ürün eklenemedi.')</script>");
+                }
+
             }
         }
 
-        protected void btn_UrunResimlerEkle_Click(object sender, EventArgs e)
+        private bool UploadImages(Dal.UrunDetaylar urunDetaylar)
         {
             int kullaniciID = int.Parse(Session["KullaniciID"].ToString());
             string urunRenk = select_UrunRenk.Items[select_UrunRenk.SelectedIndex].Value;
@@ -115,18 +126,34 @@ namespace Ecommerce.Yonetici
                     File_UrunResim3.SaveAs(resimYolu3);
                     File_UrunResim4.SaveAs(resimYolu4);
 
-                    Dal.UrunDetaylar urunDetaylar = new Dal.UrunDetaylar();
-
-                    urunDetaylar.UrunRenk = urunRenk;
-                    urunDetaylar.UrunBoyut = urunBoyut;
                     urunDetaylar.UrunImage1 = dosyaAdi1;
                     urunDetaylar.UrunImage2 = dosyaAdi2;
                     urunDetaylar.UrunImage3 = dosyaAdi3;
                     urunDetaylar.UrunImage4 = dosyaAdi4;
                     urunDetaylar.KullaniciID = kullaniciID;
+                    urunDetaylar.UrunRenk = urunRenk;
+                    urunDetaylar.UrunBoyut = urunBoyut;
 
-                    new BLL.Urunler().UrunDetayEkle(urunDetaylar);
+                    var sonuc = new BLL.Urunler().UrunDetayEkle(urunDetaylar);
+                    if (sonuc)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
+                else
+                {
+                    Response.Write("<script>alert('Resimler jpg, png veya jpeg formatında olmalıdır.')</script>");
+                    return false;
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Lütfen 4 adet resim seçiniz.')</script>");
+                return false;
             }
         }
     }

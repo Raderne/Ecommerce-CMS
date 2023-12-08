@@ -302,8 +302,8 @@
           <Property Name="UrunImage2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UrunImage3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UrunImage4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Urunlers" Relationship="EcommerceSitesiModel.FK_Urunler_UrunDetaylar" FromRole="UrunDetaylar" ToRole="Urunler" />
           <Property Name="KullaniciID" Type="Int32" />
+          <NavigationProperty Name="Urunlers" Relationship="EcommerceSitesiModel.FK_Urunler_UrunDetaylar" FromRole="UrunDetaylar" ToRole="Urunler" />
         </EntityType>
         <EntityType Name="Urunler">
           <Key>
