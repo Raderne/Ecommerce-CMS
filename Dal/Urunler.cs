@@ -14,6 +14,12 @@ namespace Dal
     
     public partial class Urunler
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Urunler()
+        {
+            this.Carts = new HashSet<Cart>();
+        }
+    
         public int UrunID { get; set; }
         public string UrunIsim { get; set; }
         public Nullable<int> UrunFiyat { get; set; }
@@ -34,5 +40,7 @@ namespace Dal
         public virtual Markalar Markalar { get; set; }
         public virtual UrunDetaylar UrunDetaylar { get; set; }
         public virtual UrunlerKategori UrunlerKategori { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Carts { get; set; }
     }
 }

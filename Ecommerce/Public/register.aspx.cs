@@ -34,9 +34,9 @@ namespace Ecommerce.Public
                     kullanici.RegistrationDate = DateTime.Now;
                     if (BLL.EcommerceUsers.Register(kullanici))
                     {
-                        Session["KullaniciID"] = kullanici.EcommerceUserID;
-                        Session["KullaniciAdi"] = kullanici.Name + " " + kullanici.Surname;
-                        Response.Redirect("./index.aspx");
+                        //Session["UserID"] = kullanici.EcommerceUserID;
+                        //Session["UserNme"] = kullanici.Name + " " + kullanici.Surname;
+                        //Response.Redirect("./index.aspx");
 
                         Dal.UserLog log = new Dal.UserLog();
                         log.LogAciklama = "Kullanıcı girişi yapıldı";

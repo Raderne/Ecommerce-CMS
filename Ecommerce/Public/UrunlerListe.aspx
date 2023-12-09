@@ -60,7 +60,6 @@
                     <!--/ Card Product-->
                 </div>--%>
                 <asp:Literal ID="Literal_ListProducts" runat="server"></asp:Literal>
-               
             </div>
             <!-- / Products-->
 
@@ -313,5 +312,42 @@
             </div>
         </div>
     </div>
+
+    <script  type='text/javascript'>
+        function QuickAddClick(event, urunID) {
+            event.preventDefault();
+            console.log("Quick Add Clicked for UrunID:", urunID);
+
+            var url = "UrunlerListe.aspx/AddToCart";
+
+            // Construct the request options
+            var options = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+                body: JSON.stringify({ urunID: urunID }),
+            };
+
+            // Make the fetch request
+            fetch(url, options)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Server Response:", data);
+                    alert("Product added to cart successfully!");
+                    // refresh to show updated cart
+                    location.reload();
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("Error adding product to cart.");
+                });
+        }
+    </script>
 
 </asp:Content>

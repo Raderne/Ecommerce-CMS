@@ -135,23 +135,37 @@ namespace BLL
             return db.UrunDetaylars.Where(x => x.UrunDetayID == id).SingleOrDefault();
         }
 
-        public List<Dal.Urunler> UrunListeleByKategoriId(int id)
+        public bool CartUrunEkle(Dal.Cart cart)
         {
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
-            return db.Urunlers.Where(x => x.UrunKategoriID == id && x.AktifllikDurumu == true).ToList();
+            db.Carts.Add(cart);
+            var sonuc = db.SaveChanges();
+            return sonuc > 0;
         }
 
-        public List<Dal.Urunler> UrunListeleByMarkaId(int id)
+        public List<Dal.Cart> CartListele(int id)
         {
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
-            return db.Urunlers.Where(x => x.MarkaID == id && x.AktifllikDurumu == true).ToList();
+            return db.Carts.Where(x => x.UserID == id).ToList();
         }
 
-        public List<Dal.Urunler> UrunListeleByKategoriIdAndMarkaId(int kategoriId, int markaId)
-        {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
-            return db.Urunlers.Where(x => x.UrunKategoriID == kategoriId && x.MarkaID == markaId && x.AktifllikDurumu == true).ToList();
-        }
+        //public List<Dal.Urunler> UrunListeleByKategoriId(int id)
+        //{
+        //    Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+        //    return db.Urunlers.Where(x => x.UrunKategoriID == id && x.AktifllikDurumu == true).ToList();
+        //}
+
+        //public List<Dal.Urunler> UrunListeleByMarkaId(int id)
+        //{
+        //    Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+        //    return db.Urunlers.Where(x => x.MarkaID == id && x.AktifllikDurumu == true).ToList();
+        //}
+
+        //public List<Dal.Urunler> UrunListeleByKategoriIdAndMarkaId(int kategoriId, int markaId)
+        //{
+        //    Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+        //    return db.Urunlers.Where(x => x.UrunKategoriID == kategoriId && x.MarkaID == markaId && x.AktifllikDurumu == true).ToList();
+        //}
 
 
 

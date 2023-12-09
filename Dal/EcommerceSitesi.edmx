@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="EcommerceSitesiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunID" Type="int" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
         <EntityType Name="EcommerceUsers">
           <Key>
             <PropertyRef Name="EcommerceUserID" />
@@ -102,6 +110,30 @@
           <Property Name="LogTuruID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LogTuruAdi" Type="varchar(max)" />
         </EntityType>
+        <Association Name="FK_Cart_EcommerceUsers">
+          <End Role="EcommerceUsers" Type="Self.EcommerceUsers" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EcommerceUsers">
+              <PropertyRef Name="EcommerceUserID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_Urunler">
+          <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="UrunID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Kullanici_KullaniciYetki">
           <End Role="KullaniciYetki" Type="Self.KullaniciYetki" Multiplicity="0..1" />
           <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
@@ -175,6 +207,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EcommerceSitesiModelStoreContainer">
+          <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EcommerceUsers" EntityType="Self.EcommerceUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KullaniciYetki" EntityType="Self.KullaniciYetki" Schema="dbo" store:Type="Tables" />
@@ -184,6 +217,14 @@
           <EntitySet Name="UrunlerKategori" EntityType="Self.UrunlerKategori" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserLog" EntityType="Self.UserLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserLogTuru" EntityType="Self.UserLogTuru" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cart_EcommerceUsers" Association="Self.FK_Cart_EcommerceUsers">
+            <End Role="EcommerceUsers" EntitySet="EcommerceUsers" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_Urunler" Association="Self.FK_Cart_Urunler">
+            <End Role="Urunler" EntitySet="Urunler" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
           <AssociationSet Name="FK_Kullanici_KullaniciYetki" Association="Self.FK_Kullanici_KullaniciYetki">
             <End Role="KullaniciYetki" EntitySet="KullaniciYetki" />
             <End Role="Kullanici" EntitySet="Kullanici" />
@@ -247,6 +288,15 @@
             <End Role="UserLogTuru" EntitySet="UserLogTurus" />
             <End Role="UserLog" EntitySet="UserLogs" />
           </AssociationSet>
+          <EntitySet Name="Carts" EntityType="EcommerceSitesiModel.Cart" />
+          <AssociationSet Name="FK_Cart_EcommerceUsers" Association="EcommerceSitesiModel.FK_Cart_EcommerceUsers">
+            <End Role="EcommerceUser" EntitySet="EcommerceUsers" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_Urunler" Association="EcommerceSitesiModel.FK_Cart_Urunler">
+            <End Role="Urunler" EntitySet="Urunlers" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="EcommerceUser">
           <Key>
@@ -259,6 +309,7 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ActivityStatus" Type="Boolean" />
           <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Carts" Relationship="EcommerceSitesiModel.FK_Cart_EcommerceUsers" FromRole="EcommerceUser" ToRole="Cart" />
         </EntityType>
         <EntityType Name="Kullanici">
           <Key>
@@ -328,6 +379,7 @@
           <NavigationProperty Name="Markalar" Relationship="EcommerceSitesiModel.FK_Urunler_Markalar" FromRole="Urunler" ToRole="Markalar" />
           <NavigationProperty Name="UrunDetaylar" Relationship="EcommerceSitesiModel.FK_Urunler_UrunDetaylar" FromRole="Urunler" ToRole="UrunDetaylar" />
           <NavigationProperty Name="UrunlerKategori" Relationship="EcommerceSitesiModel.FK_Urunler_UrunlerKategori" FromRole="Urunler" ToRole="UrunlerKategori" />
+          <NavigationProperty Name="Carts" Relationship="EcommerceSitesiModel.FK_Cart_Urunler" FromRole="Urunler" ToRole="Cart" />
         </EntityType>
         <EntityType Name="UrunlerKategori">
           <Key>
@@ -426,6 +478,40 @@
             </Principal>
             <Dependent Role="UserLog">
               <PropertyRef Name="LogTuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="EcommerceUser" Relationship="EcommerceSitesiModel.FK_Cart_EcommerceUsers" FromRole="Cart" ToRole="EcommerceUser" />
+          <NavigationProperty Name="Urunler" Relationship="EcommerceSitesiModel.FK_Cart_Urunler" FromRole="Cart" ToRole="Urunler" />
+        </EntityType>
+        <Association Name="FK_Cart_EcommerceUsers">
+          <End Type="EcommerceSitesiModel.EcommerceUser" Role="EcommerceUser" Multiplicity="0..1" />
+          <End Type="EcommerceSitesiModel.Cart" Role="Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EcommerceUser">
+              <PropertyRef Name="EcommerceUserID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_Urunler">
+          <End Type="EcommerceSitesiModel.Urunler" Role="Urunler" Multiplicity="0..1" />
+          <End Type="EcommerceSitesiModel.Cart" Role="Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urunler">
+              <PropertyRef Name="UrunID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UrunID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -538,6 +624,15 @@
               <MappingFragment StoreEntitySet="UserLogTuru">
                 <ScalarProperty Name="LogTuruAdi" ColumnName="LogTuruAdi" />
                 <ScalarProperty Name="LogTuruID" ColumnName="LogTuruID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carts">
+            <EntityTypeMapping TypeName="EcommerceSitesiModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+                <ScalarProperty Name="CartID" ColumnName="CartID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

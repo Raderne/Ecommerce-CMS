@@ -11,10 +11,9 @@ namespace Ecommerce.Public
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                UrunleriGetir();
-            }
+            
+            UrunleriGetir();
+            
         }
 
         private void UrunleriGetir()
@@ -37,18 +36,63 @@ namespace Ecommerce.Public
                     "<img class=\"w-100 img-fluid position-relative z-index-10\" title=\"\" src='../Images/" + item.UrunResim +
                     "' alt=\"\">\r\n" +
                     "</picture>";
-                Literal_ListProducts.Text += "<div class=\"position-absolute start-0 bottom-0 end-0 z-index-20 p-2\">\r\n" +
-                    "<button class=\"btn btn-quick-add\"><i class=\"ri-add-line me-2\"></i>Quick Add</button>\r\n</div>";
+                Literal_ListProducts.Text += "<div class=\"position-absolute start-0 bottom-0 end-0 z-index-50 p-2\">\r\n" +
+                    "<button class='btn btn-quick-add' onclick='QuickAddClick(event, " + item.UrunID + ");'><i class=\"ri-add-line me-2\"></i>Quick Add</button>" +
+                    "\r\n</div>";
                 Literal_ListProducts.Text += "</div>";
                 Literal_ListProducts.Text += "<div class=\"card-body px-0\">\r\n" +
                     "<a class=\"text-decoration-none link-cover\" href=\"./product.aspx?ID=" + item.UrunID +
-                    "\">Nike Air VaporMax 2021</a>\r\n" +
-                    "<small class=\"text-muted d-block\">4 colours, 10 sizes</small>\r\n" +
-                    "<p class=\"mt-2 mb-0 small\"><s class=\"text-muted\">$329.99</s> <span class=\"text-danger\">$198.66</span></p>\r\n" +
-                    "</div>";
-                Literal_ListProducts.Text += "</div>";
-                Literal_ListProducts.Text += "</div>";
+                    "\">" + item.UrunIsim + "</a>\r\n" +
+                    "<small class=\"text-muted d-block\">4 colours, 10 sizes</small>\r\n";
+                if(item.isOnSale == true)
+                {
+                    Literal_ListProducts.Text += "<p class=\"mt-2 mb-0 small\"><s class=\"text-muted\">$" + item.UrunFiyat + "</s> <span class=\"text-danger\">$" + item.UrunIndirimFiyat + "</span></p>\r\n";
+                }
+                else
+                {
+                    Literal_ListProducts.Text += "<p class=\"mt-2 mb-0 small\">$"+ item.UrunFiyat +"</p>\r\n";
+                }
+                Literal_ListProducts.Text += "</div></div></div>";
             }
+        }
+
+        [System.Web.Services.WebMethod]
+        public static string AddToCart(string urunID)
+        {
+            Dal.Cart cart = new Dal.Cart
+            {
+                UrunID = Convert.ToInt32(urunID),
+            };
+
+            if (HttpContext.Current.Session["Cart"] == null)
+            {
+                List<Dal.Cart> cartList = new List<Dal.Cart>();
+                cartList.Add(cart);
+                HttpContext.Current.Session["Cart"] = cartList;
+            }
+            else
+            {
+                List<Dal.Cart> cartList = (List<Dal.Cart>)HttpContext.Current.Session["Cart"];
+                cartList.Add(cart);
+                HttpContext.Current.Session["Cart"] = cartList;
+            }
+
+
+            if (HttpContext.Current.Session["UserID"] != null)
+            {
+                cart.UserID = Convert.ToInt32(HttpContext.Current.Session["UserID"]);
+                var sonuc = new BLL.Urunler().CartUrunEkle(cart);
+                if (sonuc == true)
+                {
+                    return "Success";
+                }
+                else
+                {
+                    return "Error";
+                }
+            }
+    
+            return "Success";
         }
     }
 }

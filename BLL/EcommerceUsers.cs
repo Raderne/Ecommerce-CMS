@@ -32,7 +32,7 @@ namespace BLL
             else
             {
                 HttpContext.Current.Session["UserID"] = result.EcommerceUserID;
-                HttpContext.Current.Session["UserAdi"] = result.Name + " " + result.Surname;
+                HttpContext.Current.Session["UserName"] = result.Name + " " + result.Surname;
                 HttpContext.Current.Response.Redirect("./index.aspx");
                 return result;
             }
@@ -42,8 +42,18 @@ namespace BLL
         {
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
             db.EcommerceUsers.Add(user);
-            db.SaveChanges();
-            return true;
+            var result = db.SaveChanges();
+            if (result > 0)
+            {
+                HttpContext.Current.Session["UserID"] = user.EcommerceUserID;
+                HttpContext.Current.Session["UserName"] = user.Name + " " + user.Surname;
+                HttpContext.Current.Response.Redirect("./index.aspx");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

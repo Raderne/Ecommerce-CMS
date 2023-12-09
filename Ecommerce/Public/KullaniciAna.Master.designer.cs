@@ -60,13 +60,13 @@ namespace Ecommerce.Public.Ecommerce
         protected global::System.Web.UI.WebControls.LinkButton lBtn_logout;
 
         /// <summary>
-        /// Label1 control.
+        /// lbl_bagItemsCount1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lbl_bagItemsCount1;
 
         /// <summary>
         /// lbl_bagItemsCount2 control.
@@ -76,6 +76,15 @@ namespace Ecommerce.Public.Ecommerce
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_bagItemsCount2;
+
+        /// <summary>
+        /// Literal_CartListele control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal_CartListele;
 
         /// <summary>
         /// lbl_BagTotal control.

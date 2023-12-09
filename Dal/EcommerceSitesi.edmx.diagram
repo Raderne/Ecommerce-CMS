@@ -20,6 +20,9 @@
         <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_UrunDetaylar" />
         <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_UrunlerKategori" />
         <AssociationConnector Association="EcommerceSitesiModel.FK_UserLog_UserLogTuru" />
+        <EntityTypeShape EntityType="EcommerceSitesiModel.Cart" Width="1.5" PointX="7.875" PointY="3.875" />
+        <AssociationConnector Association="EcommerceSitesiModel.FK_Cart_EcommerceUsers" />
+        <AssociationConnector Association="EcommerceSitesiModel.FK_Cart_Urunler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

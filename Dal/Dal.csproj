@@ -88,6 +88,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cart.cs">
+      <DependentUpon>EcommerceSitesi.tt</DependentUpon>
+    </Compile>
     <Compile Include="EcommerceSitesi.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

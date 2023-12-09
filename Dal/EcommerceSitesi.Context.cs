@@ -34,5 +34,6 @@ namespace Dal
         public virtual DbSet<UrunlerKategori> UrunlerKategoris { get; set; }
         public virtual DbSet<UserLog> UserLogs { get; set; }
         public virtual DbSet<UserLogTuru> UserLogTurus { get; set; }
+        public virtual DbSet<Cart> Carts { get; set; }
     }
 }
