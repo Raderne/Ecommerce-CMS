@@ -51,6 +51,7 @@ namespace Ecommerce.Yonetici
             bool yeniUrun = checkbox_UrunIsNew.Checked;
             bool indirimliUrun = checkbox_UrunIsOnSale.Checked;
             int urunIndirimFiyat = int.Parse(txt_UrunIndirimFiyat.Value);
+            string cinsiyet = select_cinsiyet.Items[select_cinsiyet.SelectedIndex].Value;
 
             if (File_UrunResim.HasFile)
             {
@@ -75,6 +76,7 @@ namespace Ecommerce.Yonetici
                 urun.isNew = yeniUrun;
                 urun.isOnSale = indirimliUrun;
                 urun.UrunIndirimFiyat = urunIndirimFiyat;
+                urun.Cinsiyet = cinsiyet;
                 urun.AktifllikDurumu = true;
                 urun.UserID = kullaniciID;
 

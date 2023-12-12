@@ -165,14 +165,18 @@ namespace BLL
             guncellenecek.UrunImage4 = urunDetay.UrunImage4;
 
             var sonuc = db.SaveChanges();
-            if (sonuc > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return sonuc > 0;
+        }
+
+        public bool UrunDetayGuncelleme(Dal.UrunDetaylar urunDetay)
+        {
+            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            var guncellenecek = db.UrunDetaylars.Where(x => x.UrunDetayID == urunDetay.UrunDetayID).SingleOrDefault();
+            guncellenecek.UrunBoyut = urunDetay.UrunBoyut;
+            guncellenecek.UrunRenk = urunDetay.UrunRenk;
+
+            var sonuc = db.SaveChanges();
+            return sonuc > 0;
         }
 
         public Dal.Urunler UrunGetir(int id)

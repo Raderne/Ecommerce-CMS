@@ -204,6 +204,15 @@ namespace Ecommerce.Yonetici
         protected global::System.Web.UI.HtmlControls.HtmlSelect select_UrunRenk;
 
         /// <summary>
+        /// select_cinsiyet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect select_cinsiyet;
+
+        /// <summary>
         /// checkbox_UrunIsNew control.
         /// </summary>
         /// <remarks>

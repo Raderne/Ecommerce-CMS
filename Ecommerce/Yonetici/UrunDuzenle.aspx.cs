@@ -146,6 +146,7 @@ namespace Ecommerce.Yonetici
             bool urunIsOnSale = checkbox_UrunIsOnSale.Checked;
             string urunBoyut = select_UrunBoyut.Items[select_UrunBoyut.SelectedIndex].Value;
             string urunRenk = select_UrunRenk.Items[select_UrunRenk.SelectedIndex].Value;
+            string cinsiyet = select_cinsiyet.Items[select_cinsiyet.SelectedIndex].Value;
 
             if (File_UrunResim.HasFile)
             {
@@ -165,13 +166,14 @@ namespace Ecommerce.Yonetici
             urun.isNew = urunIsNew;
             urun.isOnSale = urunIsOnSale;
             urun.UrunIndirimFiyat = urunIndirimFiyat;
+            urun.Cinsiyet = cinsiyet;
 
             Dal.UrunDetaylar urunDetay = new BLL.Urunler().UrunDetayGetir((int)urun.UrunDetayID);
             urunDetay.UrunBoyut = urunBoyut;
             urunDetay.UrunRenk = urunRenk;
 
             bool sonuc = new BLL.Urunler().UrunGuncelle(urun);
-            bool sonuc2 = new BLL.Urunler().UrunDetayGuncelle(urunDetay);
+            bool sonuc2 = new BLL.Urunler().UrunDetayGuncelleme(urunDetay);
             if (sonuc && sonuc2)
             {
                 Response.RedirectToRoute("UrunYonetim");

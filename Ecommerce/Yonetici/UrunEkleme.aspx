@@ -124,6 +124,14 @@
                                 <option>Kahverengi</option>
                             </select>
                         </div>
+                        <div class="col-md-3">
+                            <label>Cinsiyet</label>
+                            <select id="select_cinsiyet" runat="server" class="form-control">
+                                <option selected="">Seç...</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
                         <div class="form-group col-md-3">
                             <div>Yeni Ürün</div>
                             <div class="form-check form-control">
