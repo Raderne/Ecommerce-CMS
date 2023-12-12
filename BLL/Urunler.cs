@@ -182,7 +182,7 @@ namespace BLL
         public Dal.Urunler UrunGetir(int id)
         {
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
-            return db.Urunlers.Where(x => x.UrunID == id).SingleOrDefault();
+            return db.Urunlers.Where(x => x.UrunID == id && x.AktifllikDurumu == true).SingleOrDefault();
         }
 
         public Dal.UrunDetaylar UrunDetayGetir(int id)
@@ -217,34 +217,16 @@ namespace BLL
             return sonuc > 0;
         }
 
-        //public List<Dal.Urunler> UrunListeleByKategoriId(int id)
-        //{
-        //    Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
-        //    return db.Urunlers.Where(x => x.UrunKategoriID == id && x.AktifllikDurumu == true).ToList();
-        //}
-
- 
-        public List<Dal.Urunler> UrunListeleByMarka(string marka)
+        public Dal.UrunlerKategori UrunKategoriGetir(int id)
         {
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
-            int markaID = db.Markalars.Where(x => x.MarkaAd == marka).SingleOrDefault().MarkaID;
-            return db.Urunlers.Where(x => x.MarkaID == markaID && x.AktifllikDurumu == true).ToList();
+            return db.UrunlerKategoris.Where(x => x.UrunKategoriID == id).SingleOrDefault();
         }
 
-        public List<Dal.Urunler> UrunListeleByNew(string isNew)
+        public Dal.Markalar MarkaGetir(int markaID)
         {
-            bool isNewBool = Convert.ToBoolean(isNew);
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
-            return db.Urunlers.Where(x => x.isNew == isNewBool && x.AktifllikDurumu == true).ToList();
+            return db.Markalars.Where(x => x.MarkaID == markaID).SingleOrDefault();
         }
-
-        public List<Dal.Urunler> UrunListeleByOnSale(string onSale)
-        {
-            bool onSaleBool = Convert.ToBoolean(onSale);
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
-            return db.Urunlers.Where(x => x.isOnSale == onSaleBool && x.AktifllikDurumu == true).ToList();
-        }
-
-
     }
 }

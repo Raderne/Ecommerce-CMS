@@ -70,7 +70,7 @@ namespace Ecommerce.Public
                     "\r\n</div>";
                 Literal_ListProducts.Text += "</div>";
                 Literal_ListProducts.Text += "<div class=\"card-body px-0\">\r\n" +
-                    "<a class=\"text-decoration-none link-cover\" href=\"./product.aspx?ID=" + item.UrunID +
+                    "<a class=\"text-decoration-none link-cover\" href=\"./product.aspx?UrunID=" + item.UrunID +
                     "\">" + item.UrunIsim + "</a>\r\n" +
                     "<small class=\"text-muted d-block\"></small>\r\n";
                 if(item.isOnSale == true)
