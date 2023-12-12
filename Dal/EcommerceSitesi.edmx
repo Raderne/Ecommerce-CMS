@@ -78,6 +78,7 @@
           <Property Name="UrunAciklama" Type="nvarchar(max)" />
           <Property Name="miktar" Type="int" />
           <Property Name="isNew" Type="bit" />
+          <Property Name="Cinsiyet" Type="nvarchar" MaxLength="50" />
           <Property Name="UrunResim" Type="nvarchar(max)" />
           <Property Name="UrunDetayID" Type="int" />
           <Property Name="UrunKategoriID" Type="int" />
@@ -380,6 +381,7 @@
           <NavigationProperty Name="UrunDetaylar" Relationship="EcommerceSitesiModel.FK_Urunler_UrunDetaylar" FromRole="Urunler" ToRole="UrunDetaylar" />
           <NavigationProperty Name="UrunlerKategori" Relationship="EcommerceSitesiModel.FK_Urunler_UrunlerKategori" FromRole="Urunler" ToRole="UrunlerKategori" />
           <NavigationProperty Name="Carts" Relationship="EcommerceSitesiModel.FK_Cart_Urunler" FromRole="Urunler" ToRole="Cart" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="UrunlerKategori">
           <Key>
@@ -581,6 +583,7 @@
           <EntitySetMapping Name="Urunlers">
             <EntityTypeMapping TypeName="EcommerceSitesiModel.Urunler">
               <MappingFragment StoreEntitySet="Urunler">
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
                 <ScalarProperty Name="AktifllikDurumu" ColumnName="AktifllikDurumu" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />

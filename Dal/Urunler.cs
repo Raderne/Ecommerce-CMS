@@ -35,6 +35,7 @@ namespace Dal
         public Nullable<int> MarkaID { get; set; }
         public Nullable<int> UserID { get; set; }
         public Nullable<bool> AktifllikDurumu { get; set; }
+        public string Cinsiyet { get; set; }
     
         public virtual Kullanici Kullanici { get; set; }
         public virtual Markalar Markalar { get; set; }

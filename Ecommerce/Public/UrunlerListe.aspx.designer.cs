@@ -15,6 +15,24 @@ namespace Ecommerce.Public
     {
 
         /// <summary>
+        /// lbl_PageTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_PageTitle;
+
+        /// <summary>
+        /// lbl_PageSubtitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_PageSubtitle;
+
+        /// <summary>
         /// Literal_ListProducts control.
         /// </summary>
         /// <remarks>

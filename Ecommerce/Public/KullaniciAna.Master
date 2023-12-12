@@ -48,6 +48,10 @@
             -webkit-text-decoration: none !important;
             text-decoration: none !important;
         }
+
+        .ri-close-line{
+            cursor: pointer;
+        }
     </style>
 
     <!-- Page Title -->
@@ -87,7 +91,7 @@
 
                             <!-- Navbar Search-->
                             <li class="d-none d-sm-block">
-                                <span class="nav-link text-body search-trigger cursor-pointer">Search</span>
+                                <span class="nav-link text-body search-trigger cursor-pointer">Arama</span>
 
                                 <!-- Search navbar overlay-->
                                 <div class="navbar-search d-none">
@@ -109,7 +113,7 @@
 
                             <!-- Navbar Login-->
                             <li class="ms-1 d-none d-lg-inline-block">
-                                <a class="nav-link text-body" id="lbl_MenuAcount" runat="server" href="./login.aspx">Account
+                                <a class="nav-link text-body" id="lbl_MenuAcount" runat="server" href="./login.aspx">Hesabım
                                 </a>
                                 <asp:LinkButton ID="lBtn_logout" runat="server" OnClick="lBtn_logout_Click"></asp:LinkButton>
                             </li>
@@ -128,7 +132,10 @@
                                         <h6 class="fw-bolder m-0">
                                             Cart Summary <asp:Label ID="lbl_bagItemsCount2" runat="server" Text=""></asp:Label>
                                         </h6>
-                                        <i class="ri-close-circle-line text-muted ri-lg cursor-pointer btn-close-cart"></i>
+
+                                        <asp:LinkButton ID="btn_removeAllCartItems" runat="server" OnClick="btn_removeAllCartItems_Click">
+                                            <i class="ri-close-circle-line text-muted ri-lg cursor-pointer btn-close-cart"></i>
+                                        </asp:LinkButton>
                                     </div>
                                     <!-- / Cart Header-->
 
@@ -159,14 +166,14 @@
                                         <div class="pt-3">
                                             <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-start mb-4 mb-md-2">
                                                 <div>
-                                                    <p class="m-0 fw-bold fs-5">Grand Total</p>
-                                                    <span class="text-muted small">Inc sales tax</span>
+                                                    <p class="m-0 fw-bold fs-5">Genel Toplam</p>
+                                                    <span class="text-muted small">Satış vergisi dahil</span>
                                                 </div>
-                                                <p class="m-0 fs-5 fw-bold" runat="server" id="lbl_BagTotal">$0.00</p>
+                                                <p class="m-0 fs-5 fw-bold" runat="server" id="lbl_BagTotal"></p>
                                             </div>
                                         </div>
-                                        <a href="./Cart.aspx" class="btn btn-outline-dark w-100 text-center mt-4" role="button">View Cart</a>
-                                        <a href="./Checkout.aspx" runat="server" id="btn_CheckoutPage" class="btn btn-dark w-100 text-center mt-2" role="button">Proceed To Checkout</a>
+                                        <a href="./Cart.aspx" class="btn btn-outline-dark w-100 text-center mt-4" role="button">Sepeti Göster</a>
+                                        <a href="./Checkout.aspx" runat="server" id="btn_CheckoutPage" class="btn btn-dark w-100 text-center mt-2" role="button">Ödeme İşlemine Geç</a>
                                     </div>
                                     <!-- / Cart Summary-->
                                 </div>
@@ -184,34 +191,38 @@
 
                             <!-- Menu-->
                             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./UrunlerListe.aspx" role="button">Tüm Ürünler
+                                    </a>
+                                </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">MEN
+                                    <a class="nav-link dropdown-toggle" href="./UrunlerListe.aspx?cinsiyet=Male" role="button" data-bs-toggle="dropdown" aria-expanded="false">Erkekler
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="./category.html">Tops</a></li>
-                                        <li><a class="dropdown-item" href="./category.html">Jeans</a></li>
-                                        <li><a class="dropdown-item" href="./category.html">T-Shirts</a></li>
-                                        <li><a class="dropdown-item" href="./category.html">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="./category.html">Accessories</a></li>
+                                        <li><a class="dropdown-item" href="./UrunlerListe.aspx?kategoriName=Tops&cinsiyet=Male">Tops</a></li>
+                                        <li><a class="dropdown-item" href="./UrunlerListe.aspx?kategoriName=Jeans&cinsiyet=Male">Jeans</a></li>
+                                        <li><a class="dropdown-item" href="./UrunlerListe.aspx?kategoriName=T-Shirts&cinsiyet=Male">T-Shirts</a></li>
+                                        <li><a class="dropdown-item" href="./UrunlerListe.aspx?kategoriName=Shoes&cinsiyet=Male">Ayakkabılar</a></li>
+                                        <li><a class="dropdown-item" href="./UrunlerListe.aspx?kategoriName=Accessories&cinsiyet=Male">aksesuarlar</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Women
+                                    <a class="nav-link dropdown-toggle" href="./UrunlerListe.aspx?cinsiyet=Female" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kadınlar
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="./category.html">Tops</a></li>
-                                        <li><a class="dropdown-item" href="./category.html">Jeans</a></li>
-                                        <li><a class="dropdown-item" href="./category.html">T-Shirts</a></li>
-                                        <li><a class="dropdown-item" href="./category.html">Shoes</a></li>
-                                        <li><a class="dropdown-item" href="./category.html">Accessories</a></li>
+                                        <li><a class="dropdown-item" href="./UrunlerListe.aspx?kategoriName=Tops&cinsiyet=Female">Tops</a></li>
+                                        <li><a class="dropdown-item" href="./UrunlerListe.aspx?kategoriName=Jeans&cinsiyet=Female">Jeans</a></li>
+                                        <li><a class="dropdown-item" href="./UrunlerListe.aspx?kategoriName=T-Shirts&cinsiyet=Female">T-Shirts</a></li>
+                                        <li><a class="dropdown-item" href="./UrunlerListe.aspx?kategoriName=Shoes&cinsiyet=Female">Ayakkabılar</a></li>
+                                        <li><a class="dropdown-item" href="./UrunlerListe.aspx?kategoriName=Accessories&cinsiyet=Female">aksesuarlar</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./category.html" role="button">Kids
+                                    <a class="nav-link" href="./UrunlerListe.aspx?cinsiyet=Kids" role="button">Çocuklar
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./UrunlerListe.aspx" role="button">Sale
+                                    <a class="nav-link" href="./UrunlerListe.aspx?isOnSale=true" role="button">İndirim
                                     </a>
                                 </li>
                             </ul>

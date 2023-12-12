@@ -38,11 +38,11 @@
                     </div>
                     <div
                         class="container position-relative z-index-10 d-flex h-100 align-items-start flex-column justify-content-center">
-                        <p class="title-small text-white opacity-75 mb-0" data-swiper-parallax="-100">Everything You Need</p>
+                        <p class="title-small text-white opacity-75 mb-0" data-swiper-parallax="-100">İhtiyacınız Olan Herşey</p>
                         <h2 class="display-3 tracking-wide fw-bold text-uppercase tracking-wide text-white" data-swiper-parallax="100">
                             <span class="text-outline-light">Summer</span> Essentials</h2>
                         <div data-swiper-parallax-y="-25">
-                            <a href="./category.html" class="btn btn-psuedo text-white" role="button">Shop New Arrivals</a>
+                            <a href="./UrunlerListe.aspx?isNew=true" class="btn btn-psuedo text-white" role="button">Yeni Gelenler Alışverişi</a>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                         <p class="title-small text-white opacity-75 mb-0" data-swiper-parallax="-100">Spring Collection</p>
                         <h2 class="display-3 tracking-wide fw-bold text-uppercase tracking-wide text-white" data-swiper-parallax="100">Adidas <span class="text-outline-light">SS21</span></h2>
                         <div data-swiper-parallax-y="-25">
-                            <a href="./category.html" class="btn btn-psuedo text-white" role="button">Shop Latest Adidas</a>
+                            <a href="./UrunlerListe.aspx?markaAd=Adidas&isNew=true" class="btn btn-psuedo text-white" role="button">Yeni Adidas'ları Satın Al</a>
                         </div>
                     </div>
                 </div>
@@ -78,30 +78,11 @@
                         <p class="title-small text-white opacity-75 mb-0" data-swiper-parallax="-100">Just Do it</p>
                         <h2 class="display-3 tracking-wide fw-bold text-uppercase tracking-wide text-white" data-swiper-parallax="100">Nike <span class="text-outline-light">SS21</span></h2>
                         <div data-swiper-parallax-y="-25">
-                            <a href="./category.html" class="btn btn-psuedo text-white" role="button">Shop Latest Nike</a>
+                            <a href="./UrunlerListe.aspx?markaAd=Nike&isNew=true" class="btn btn-psuedo text-white" role="button">Yeni Nike'ları Satın Al</a>
                         </div>
                     </div>
                 </div>
                 <!-- /Slide-->
-
-                <!--Slide-->
-                <div class="swiper-slide position-relative h-100 w-100">
-                    <div class="w-100 h-100 overflow-hidden position-absolute z-index-1 top-0 start-0 end-0 bottom-0">
-                        <div class="w-100 h-100 bg-img-cover bg-pos-center-center overflow-hidden" data-swiper-parallax="-100"
-                            style="will-change: transform; background-image: url(./assets/images/banners/banner-3.jpg)">
-                        </div>
-                    </div>
-                    <div
-                        class="container position-relative z-index-10 d-flex h-100 align-items-start flex-column justify-content-center">
-                        <p class="title-small text-white opacity-75 mb-0" data-swiper-parallax="-100">Look Good Feel Good</p>
-                        <h2 class="display-3 tracking-wide fw-bold text-uppercase tracking-wide text-white" data-swiper-parallax="100">
-                            <span class="text-outline-light">Sustainable</span> Fashion</h2>
-                        <div data-swiper-parallax-y="-25">
-                            <a href="./category.html" class="btn btn-psuedo text-white" role="button">Why We Are Different</a>
-                        </div>
-                    </div>
-                </div>
-                <!--/Slide-->
 
             </div>
 
@@ -119,63 +100,63 @@
                 <div class="marquee-body">
                     <div class="marquee-section animation-marquee-50">
                         <div class="mx-3 mx-lg-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-1.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-3 mx-lg-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-2.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-3 mx-lg-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-3.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-3 mx-lg-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-4.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-3 mx-lg-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-5.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-3 mx-lg-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-6.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-3 mx-lg-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-7.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-3 mx-lg-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-8.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-3 mx-lg-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-9.svg" alt="">
                                 </picture>
@@ -184,63 +165,63 @@
                     </div>
                     <div class="marquee-section animation-marquee-50">
                         <div class="mx-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-1.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-2.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-3.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-4.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-5.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-6.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-7.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-8.svg" alt="">
                                 </picture>
                             </a>
                         </div>
                         <div class="mx-5 f-w-24">
-                            <a class="d-block" href="./category.html">
+                            <a class="d-block" href="./UrunlerListe.aspx">
                                 <picture>
                                     <img class="img-fluid d-table mx-auto" src="./assets/images/logos/logo-9.svg" alt="">
                                 </picture>
@@ -260,11 +241,11 @@
                 <h2 class="bg-text-title opacity-10"><span class="text-outline-dark">Old</span>Skool</h2>
             </div>
             <div class="col-12 col-md-6 position-relative z-index-20 mb-7 mb-lg-0" data-aos="fade-right">
-                <p class="text-muted title-small">Welcome</p>
+                <p class="text-muted title-small">HoşGeldiniz</p>
                 <h3 class="display-3 fw-bold mb-5"><span class="text-outline-dark">OldSkool</span> - streetwear & footwear specialists</h3>
-                <p class="lead">We are OldSkool, a leading supplier of global streetwear brands, including names such as <a href="./category.html">Stussy</a>, <a href="./category.html">Carhartt</a>, <a href="./category.html">Gramicci</a>, <a href="./category.html">Afends</a> and many more.</p>
-                <p class="lead">With worldwide shipping and unbeatable prices - now's a great time to pick out something from our range.</p>
-                <a href="./category.html" class="btn btn-psuedo" role="button">Shop New Arrivals</a>
+                <p class="lead">Biz, <a href="./UrunlerListe.aspx?markaAd=Nike">Nike</a>, <a href="./UrunlerListe.aspx?markaAd=Adidas">Addidas</a> gibi isimler de dahil olmak üzere küresel sokak giyim markalarının lider tedarikçisi OldSkool'uz, ve daha birçoğu.</p>
+                <p class="lead">Dünya çapında nakliye ve rakipsiz fiyatlarla - şimdi ürün yelpazemizden bir şeyler seçmek için harika bir zaman.</p>
+                <a href="./UrunlerListe.aspx?isNew=true" class="btn btn-psuedo" role="button">Yeni Gelenleri Satın Alın</a>
             </div>
             <div class="col-12 col-md-6 position-relative z-index-20 pe-0" data-aos="fade-left">
                 <picture class="w-50 d-block position-relative z-index-10 border border-white border-4 shadow-lg">
@@ -290,8 +271,8 @@
                     <div class="position-absolute top-0 bottom-0 start-0 end-0 d-flex justify-content-center align-items-center z-index-20">
                         <div class="py-6 px-5 px-lg-10 text-center w-100">
                             <h2 class="display-1 mb-3 fw-bold text-white"><span class="text-outline-light">Flash</span> Sale</h2>
-                            <p class="fs-5 fw-light text-white d-none d-md-block">Our yearly flash sale is now on! Grab yourself a bargain from the world's leading streetwear brands.</p>
-                            <a href="./category.html" class="btn btn-psuedo text-white" role="button">Shop All Sale Items</a>
+                            <p class="fs-5 fw-light text-white d-none d-md-block">Yıllık flaş indirimimiz şimdi başladı! Dünyanın önde gelen sokak giyim markalarından kendinize bir pazarlık yapın.</p>
+                            <a href="./UrunlerListe.aspx?isOnSale=true" class="btn btn-psuedo text-white" role="button">Tüm İndirimli Ürünleri İnceleyin</a>
                         </div>
                     </div>
                 </div>
@@ -304,7 +285,7 @@
                                 </picture>
                                 <div class="card-overlay">
                                     <p class="lead fw-bolder mb-2">The Jordan Delta 2</p>
-                                    <a href="./category.html" class="btn btn-psuedo text-white py-2" role="button">Shop Kicks</a>
+                                    <a href="./UrunlerListe.aspx?markaAd=Nike" class="btn btn-psuedo text-white py-2" role="button">Shop Kicks</a>
                                 </div>
                             </div>
                         </div>
@@ -314,8 +295,8 @@
                                     <img class="w-100 rounded" src="./assets/images/banners/banner-9.jpg" alt="HTML Bootstrap Template by Pixel Rocket">
                                 </picture>
                                 <div class="card-overlay">
-                                    <p class="lead fw-bolder mb-2">Latest Mens Shirts</p>
-                                    <a href="./category.html" class="btn btn-psuedo text-white py-2" role="button">Shop New</a>
+                                    <p class="lead fw-bolder mb-2">En Yeni Erkek Gömlekleri</p>
+                                    <a href="./UrunlerListe.aspx?cinsiyet=Male&kategoriName=Shoes" class="btn btn-psuedo text-white py-2" role="button">Shop Yeni</a>
                                 </div>
                             </div>
                         </div>
@@ -326,7 +307,7 @@
                                 </picture>
                                 <div class="card-overlay">
                                     <p class="lead fw-bolder mb-2">KiiKii Osake Tees</p>
-                                    <a href="./category.html" class="btn btn-psuedo text-white py-2" role="button">Shop T-Shirts</a>
+                                    <a href="./UrunlerListe.aspx?kategoriName=T-Shirts" class="btn btn-psuedo text-white py-2" role="button">Shop T-Shirts</a>
                                 </div>
                             </div>
                         </div>
@@ -337,7 +318,7 @@
                                 </picture>
                                 <div class="card-overlay">
                                     <p class="lead fw-bolder mb-2">Multibuy Womens Shirts</p>
-                                    <a href="./category.html" class="btn btn-psuedo text-white py-2" role="button">Shop Sale Items</a>
+                                    <a href="./UrunlerListe.aspx?kategoriName=T-Shirts&cinsiyet=Female" class="btn btn-psuedo text-white py-2" role="button">İndirimli Ürünler Alışverişi</a>
                                 </div>
                             </div>
                         </div>

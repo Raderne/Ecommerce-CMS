@@ -14,6 +14,58 @@ namespace BLL
             return db.Urunlers.Where(x => x.AktifllikDurumu == true).ToList();
         }
 
+        public List<Dal.Urunler> UrunListele(string marka = null, string isNew = null, string onSale = null, string kategoriName = null, string cinsiyet = null)
+        {
+            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+
+            // Filter by Marka
+            int? markaID = null;
+            if (!string.IsNullOrEmpty(marka))
+            {
+                markaID = db.Markalars
+                    .Where(x => x.MarkaAd == marka)
+                    .Select(x => (int?)x.MarkaID)
+                    .SingleOrDefault();
+            }
+
+            // Filter by isNew
+            bool? isNewBool = null;
+            if (!string.IsNullOrEmpty(isNew))
+            {
+                isNewBool = Convert.ToBoolean(isNew);
+            }
+
+            // Filter by onSale
+            bool? onSaleBool = null;
+            if (!string.IsNullOrEmpty(onSale))
+            {
+                onSaleBool = Convert.ToBoolean(onSale);
+            }
+
+            // Filter by kategoriName
+            int? kategoriID = null;
+            if (!string.IsNullOrEmpty(kategoriName))
+            {
+                kategoriID = db.UrunlerKategoris
+                    .Where(x => x.UrunkategoriAd == kategoriName)
+                    .Select(x => (int?)x.UrunKategoriID)
+                    .SingleOrDefault();
+            }
+
+
+            // Combine all filters
+            return db.Urunlers
+                .Where(x =>
+                    (markaID == null || x.MarkaID == markaID) &&
+                    (isNewBool == null || x.isNew == isNewBool) &&
+                    (onSaleBool == null || x.isOnSale == onSaleBool) &&
+                    (kategoriID == null || x.UrunKategoriID == kategoriID) &&
+                    (cinsiyet == null || x.Cinsiyet == cinsiyet) &&
+                    x.AktifllikDurumu == true
+                )
+                .ToList();
+        }
+
         public DataTable UrunlerList(int id)
         {   
             DataTable dt = new DataTable();
@@ -143,10 +195,22 @@ namespace BLL
             return sonuc > 0;
         }
 
-        public List<Dal.Cart> CartListele(int id)
+        public List<Dal.Cart> CartGetir(int id)
         {
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
             return db.Carts.Where(x => x.UserID == id).ToList();
+        }
+
+        public bool CartUrunlerSil(int id)
+        {
+            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            var silinecek = db.Carts.Where(x => x.UserID == id).ToList();
+            foreach (var item in silinecek)
+            {
+                db.Carts.Remove(item);
+            }
+            var sonuc = db.SaveChanges();
+            return sonuc > 0;
         }
 
         //public List<Dal.Urunler> UrunListeleByKategoriId(int id)
@@ -155,18 +219,27 @@ namespace BLL
         //    return db.Urunlers.Where(x => x.UrunKategoriID == id && x.AktifllikDurumu == true).ToList();
         //}
 
-        //public List<Dal.Urunler> UrunListeleByMarkaId(int id)
-        //{
-        //    Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
-        //    return db.Urunlers.Where(x => x.MarkaID == id && x.AktifllikDurumu == true).ToList();
-        //}
+ 
+        public List<Dal.Urunler> UrunListeleByMarka(string marka)
+        {
+            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            int markaID = db.Markalars.Where(x => x.MarkaAd == marka).SingleOrDefault().MarkaID;
+            return db.Urunlers.Where(x => x.MarkaID == markaID && x.AktifllikDurumu == true).ToList();
+        }
 
-        //public List<Dal.Urunler> UrunListeleByKategoriIdAndMarkaId(int kategoriId, int markaId)
-        //{
-        //    Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
-        //    return db.Urunlers.Where(x => x.UrunKategoriID == kategoriId && x.MarkaID == markaId && x.AktifllikDurumu == true).ToList();
-        //}
+        public List<Dal.Urunler> UrunListeleByNew(string isNew)
+        {
+            bool isNewBool = Convert.ToBoolean(isNew);
+            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            return db.Urunlers.Where(x => x.isNew == isNewBool && x.AktifllikDurumu == true).ToList();
+        }
 
+        public List<Dal.Urunler> UrunListeleByOnSale(string onSale)
+        {
+            bool onSaleBool = Convert.ToBoolean(onSale);
+            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            return db.Urunlers.Where(x => x.isOnSale == onSaleBool && x.AktifllikDurumu == true).ToList();
+        }
 
 
     }
