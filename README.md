@@ -46,6 +46,3 @@ Ecommerce-CMS is an open-source project and welcomes contributions from anyone. 
 - Push your branch and create a pull request
 - Wait for a review and feedback
 
-## License
-
-Ecommerce-CMS is licensed under the MIT License.
