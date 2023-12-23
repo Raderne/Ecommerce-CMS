@@ -173,7 +173,7 @@
                                             </div>
                                         </div>
                                         <a href="./Cart.aspx" class="btn btn-outline-dark w-100 text-center mt-4" role="button">Sepeti Göster</a>
-                                        <a href="./Checkout.aspx" runat="server" id="btn_CheckoutPage" class="btn btn-dark w-100 text-center mt-2" role="button">Ödeme İşlemine Geç</a>
+                                        <a href="./Checkout-payment.aspx" runat="server" id="btn_CheckoutPage" class="btn btn-dark w-100 text-center mt-2" role="button">Ödeme İşlemine Geç</a>
                                     </div>
                                     <!-- / Cart Summary-->
                                 </div>

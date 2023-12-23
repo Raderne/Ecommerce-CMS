@@ -32,7 +32,7 @@ namespace Ecommerce.Public.Ecommerce
                 if (cart.Count > 0)
                 {
                     lbl_bagItemsCount1.Text = "( " + cart.Count.ToString() + " )";
-                    lbl_bagItemsCount2.Text = "(" + cart.Count.ToString() + " items)";
+                    lbl_bagItemsCount2.Text = "(" + cart.Count.ToString() + " ürün)";
 
                     ListCartItems(cart);
 
@@ -40,7 +40,7 @@ namespace Ecommerce.Public.Ecommerce
                 else
                 {
                     lbl_bagItemsCount1.Text = "";
-                    lbl_bagItemsCount2.Text = "(0 items)";
+                    lbl_bagItemsCount2.Text = "(0 ürün)";
                     lbl_BagTotal.Style.Add("display", "none");
                 }
             }
@@ -58,14 +58,14 @@ namespace Ecommerce.Public.Ecommerce
 
                     List<Dal.Cart> cart = (List<Dal.Cart>)Session["Cart"];
                     lbl_bagItemsCount1.Text = "( " + cart.Count.ToString() + " )";
-                    lbl_bagItemsCount2.Text = "(" + cart.Count.ToString() + " items)";
+                    lbl_bagItemsCount2.Text = "(" + cart.Count.ToString() + " ürün)";
 
                     ListCartItems(cart);
                 }
                 else
                 {
                     lbl_bagItemsCount1.Text = "";
-                    lbl_bagItemsCount2.Text = "(0 items)";
+                    lbl_bagItemsCount2.Text = "(0 ürün)";
                     lbl_BagTotal.Style.Add("display", "none");
                 }
             }
@@ -91,7 +91,7 @@ namespace Ecommerce.Public.Ecommerce
                 Session["Cart"] = null;
 
                 lbl_bagItemsCount1.Text = "";
-                lbl_bagItemsCount2.Text = "(0 items)";
+                lbl_bagItemsCount2.Text = "(0 ürün)";
                 lbl_BagTotal.Style.Add("display", "none");
             }
         }
