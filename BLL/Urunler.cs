@@ -75,6 +75,7 @@ namespace BLL
             dt.Columns.Add("Urun Fiyat");
             dt.Columns.Add("miktar");
             dt.Columns.Add("Urun Detaylar");
+            dt.Columns.Add("Urun Sil");
 
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
             var urunler = db.Urunlers.Where(x => x.AktifllikDurumu == true && x.UserID == id).ToList();
@@ -82,7 +83,7 @@ namespace BLL
             {
                 var urunKategori = db.UrunlerKategoris.Where(x => x.UrunKategoriID == item.UrunKategoriID).SingleOrDefault();
                 dt.Rows.Add(item.UrunResim, item.UrunIsim, urunKategori.UrunkategoriAd, 
-                    item.UrunFiyat, item.miktar, item.UrunID);
+                    item.UrunFiyat, item.miktar, item.UrunID, item.UrunID);
             }
             return dt;
         }
@@ -117,13 +118,13 @@ namespace BLL
             }
         }
 
-        public bool UrunSil(Dal.Urunler urun)
+        public bool UrunSil(int id)
         {
             Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
-            var silinecek = db.Urunlers.Where(x => x.UrunID == urun.UrunID).SingleOrDefault();
+            var silinecek = db.Urunlers.Where(x => x.UrunID == id).SingleOrDefault();
             silinecek.AktifllikDurumu = false;
-            db.SaveChanges();
-            return true;
+            int sonuc = db.SaveChanges();
+            return sonuc > 0;
         }
 
         public bool UrunGuncelle(Dal.Urunler urun)

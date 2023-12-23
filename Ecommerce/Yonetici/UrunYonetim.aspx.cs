@@ -26,11 +26,18 @@ namespace Ecommerce.Yonetici
                     htmlTable += "<td>" + item["Urun Fiyat"] + "</td>";
                     htmlTable += "<td>" + item["miktar"] + "</td>";
                     htmlTable += "<td><button type='button' onclick='location.href=\"UrunDuzenle.aspx?UrunID=" + item["Urun Detaylar"] + "\"' class='btn btn-outline-primary'>Ürün Detaylar</button></td>";
+                    htmlTable += "<td><button type='button' onclick='UrunSil(" + item["Urun Sil"] + ");' class='btn btn-outline-danger'>Ürün Sil</button></td>";
                     htmlTable += "</tr>";
                 }
 
                 Literal_UrunlerListele.Text = htmlTable;
             }
+        }
+
+        [System.Web.Services.WebMethod]
+        public static void RemoveItem(int urunID)
+        {
+            new BLL.Urunler().UrunSil(urunID);
         }
     }
 }

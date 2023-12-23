@@ -23,6 +23,7 @@
                                 <th>Ürün Fiyat</th>
                                 <th>Ürün Miktar</th>
                                 <th>Ürün Detay</th>
+                                <th>Ürün Sil</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,6 +37,7 @@
                                 <th>Ürün Fiyat</th>
                                 <th>Ürün Miktar</th>
                                 <th>Ürün Detay</th>
+                                <th>Ürün Sil</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -49,9 +51,40 @@
     <script src="./js/quixnav-init.js"></script>
     <script src="./js/custom.min.js"></script>
 
-
-
     <!-- Datatable -->
     <script src="./vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="./js/plugins-init/datatables.init.js"></script>
+
+    <script type='text/javascript'>
+        function UrunSil(urunID) {
+            var url = "UrunYonetim.aspx/RemoveItem";
+
+            // Construct the request options
+            var options = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+                body: JSON.stringify({ urunID: urunID }),
+            };
+
+            // Make the fetch request
+            fetch(url, options)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Request failed.");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    alert("Ürün Silindi");
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("Ürün Silinemedi");
+                });
+        }
+    </script>
+
 </asp:Content>
