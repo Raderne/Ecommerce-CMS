@@ -13,10 +13,10 @@ namespace Dal
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EcommerceSitesiEntities : DbContext
+    public partial class EcommerceDBSitesiEntities : DbContext
     {
-        public EcommerceSitesiEntities()
-            : base("name=EcommerceSitesiEntities")
+        public EcommerceDBSitesiEntities()
+            : base("name=EcommerceDBSitesiEntities")
         {
         }
     
@@ -25,6 +25,7 @@ namespace Dal
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<EcommerceUser> EcommerceUsers { get; set; }
         public virtual DbSet<Kullanici> Kullanicis { get; set; }
         public virtual DbSet<KullaniciYetki> KullaniciYetkis { get; set; }
@@ -34,6 +35,6 @@ namespace Dal
         public virtual DbSet<UrunlerKategori> UrunlerKategoris { get; set; }
         public virtual DbSet<UserLog> UserLogs { get; set; }
         public virtual DbSet<UserLogTuru> UserLogTurus { get; set; }
-        public virtual DbSet<Cart> Carts { get; set; }
+        public virtual DbSet<Slider> Sliders { get; set; }
     }
 }

@@ -96,10 +96,10 @@
                                         <i class="ti-angle-down f-s-10"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="./app-profile.html" class="dropdown-item">
+                                        <%--<a href="./app-profile.html" class="dropdown-item">
                                             <i class="icon-user"></i>
                                             <span class="ml-2">Profile </span>
-                                        </a>
+                                        </a>--%>
                                         <%--<a href="./email-inbox.html" class="dropdown-item">
                                             <i class="icon-envelope-open"></i>
                                             <span class="ml-2">Inbox </span>
@@ -157,7 +157,19 @@
                             </ul>
                         </li>
 
-                        <li class="nav-logout-btn">
+                        <li class="nav-label">Sliders</li>
+                        <li>
+                            <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                                <i class="icon icon-time-3"></i>
+                                <span class="nav-text">Slider İşlemleri</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                <li><a href="SliderYonetim.aspx">Slider Listele</a></li>
+                                <li><a href="SliderEkleme.aspx">Slider Ekleme</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-logout-btn" style="margin-top: 60px;">
                             <asp:LinkButton ID="Sidebar_Logout" runat="server" OnClick="Sidebar_Logout_Click">
                                 <i class="ti-close"></i>
                                 <span class="nav-text">Logout</span>

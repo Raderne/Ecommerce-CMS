@@ -30,7 +30,7 @@
             <div class="swiper-wrapper">
 
                 <!-- Slide-->
-                <div class="swiper-slide position-relative h-100 w-100">
+                <%--<div class="swiper-slide position-relative h-100 w-100">
                     <div class="w-100 h-100 overflow-hidden position-absolute z-index-1 top-0 start-0 end-0 bottom-0">
                         <div class="w-100 h-100 bg-img-cover bg-pos-center-center overflow-hidden" data-swiper-parallax="-100"
                             style="will-change: transform; background-image: url(./assets/images/banners/banner-1.jpg)">
@@ -45,43 +45,8 @@
                             <a href="./UrunlerListe.aspx?isNew=true" class="btn btn-psuedo text-white" role="button">Yeni Gelenler Alışverişi</a>
                         </div>
                     </div>
-                </div>
-                <!-- /Slide-->
-
-                <!-- Slide-->
-                <div class="swiper-slide position-relative h-100 w-100">
-                    <div class="w-100 h-100 overflow-hidden position-absolute z-index-1 top-0 start-0 end-0 bottom-0">
-                        <div class="w-100 h-100 bg-img-cover bg-pos-center-center overflow-hidden" data-swiper-parallax="-100"
-                            style="will-change: transform; background-image: url(./assets/images/banners/banner-2.jpg)">
-                        </div>
-                    </div>
-                    <div
-                        class="container position-relative z-index-10 d-flex h-100 align-items-start flex-column justify-content-center">
-                        <p class="title-small text-white opacity-75 mb-0" data-swiper-parallax="-100">Spring Collection</p>
-                        <h2 class="display-3 tracking-wide fw-bold text-uppercase tracking-wide text-white" data-swiper-parallax="100">Adidas <span class="text-outline-light">SS21</span></h2>
-                        <div data-swiper-parallax-y="-25">
-                            <a href="./UrunlerListe.aspx?markaAd=Adidas&isNew=true" class="btn btn-psuedo text-white" role="button">Yeni Adidas'ları Satın Al</a>
-                        </div>
-                    </div>
-                </div>
-                <!--/Slide-->
-
-                <!-- Slide-->
-                <div class="swiper-slide position-relative h-100 w-100">
-                    <div class="w-100 h-100 overflow-hidden position-absolute z-index-1 top-0 start-0 end-0 bottom-0">
-                        <div class="w-100 h-100 bg-img-cover bg-pos-center-center overflow-hidden" data-swiper-parallax="-100"
-                            style="will-change: transform; background-image: url(./assets/images/banners/banner-4.jpg)">
-                        </div>
-                    </div>
-                    <div
-                        class="container position-relative z-index-10 d-flex h-100 align-items-start flex-column justify-content-center">
-                        <p class="title-small text-white opacity-75 mb-0" data-swiper-parallax="-100">Just Do it</p>
-                        <h2 class="display-3 tracking-wide fw-bold text-uppercase tracking-wide text-white" data-swiper-parallax="100">Nike <span class="text-outline-light">SS21</span></h2>
-                        <div data-swiper-parallax-y="-25">
-                            <a href="./UrunlerListe.aspx?markaAd=Nike&isNew=true" class="btn btn-psuedo text-white" role="button">Yeni Nike'ları Satın Al</a>
-                        </div>
-                    </div>
-                </div>
+                </div>--%>
+                <asp:Literal ID="Literal_Sliders" runat="server"></asp:Literal>
                 <!-- /Slide-->
 
             </div>

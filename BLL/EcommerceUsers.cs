@@ -9,7 +9,7 @@ namespace BLL
     {
         public static bool EmailIsAvailable(string email)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             var result = db.EcommerceUsers.Where(x => x.Email == email).SingleOrDefault();
             if (result == null)
             {
@@ -23,7 +23,7 @@ namespace BLL
 
         public static Dal.EcommerceUser Login(string email, string password)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             var result = db.EcommerceUsers.Where(x => x.Email == email && x.Password == password).SingleOrDefault();
             if (result == null)
             {
@@ -40,7 +40,7 @@ namespace BLL
 
         public static bool Register(Dal.EcommerceUser user)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             db.EcommerceUsers.Add(user);
             var result = db.SaveChanges();
             if (result > 0)

@@ -4,25 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="782bfb70b2a9498c9501a4918def271c" Name="Diagram1">
-        <EntityTypeShape EntityType="EcommerceSitesiModel.EcommerceUser" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.Kullanici" Width="1.5" PointX="3" PointY="1.875" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.KullaniciYetki" Width="1.5" PointX="0.75" PointY="2.625" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.Markalar" Width="1.5" PointX="3" PointY="5.75" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.UrunDetaylar" Width="1.5" PointX="3" PointY="8.125" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.Urunler" Width="1.5" PointX="5.25" PointY="1" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.UrunlerKategori" Width="1.5" PointX="3" PointY="11.625" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.UserLog" Width="1.5" PointX="8" PointY="7" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.UserLogTuru" Width="1.5" PointX="5.75" PointY="7.375" />
-        <AssociationConnector Association="EcommerceSitesiModel.FK_Kullanici_KullaniciYetki" />
-        <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_Kullanici" />
-        <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_Markalar" />
-        <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_UrunDetaylar" />
-        <AssociationConnector Association="EcommerceSitesiModel.FK_Urunler_UrunlerKategori" />
-        <AssociationConnector Association="EcommerceSitesiModel.FK_UserLog_UserLogTuru" />
-        <EntityTypeShape EntityType="EcommerceSitesiModel.Cart" Width="1.5" PointX="7.875" PointY="3.875" />
-        <AssociationConnector Association="EcommerceSitesiModel.FK_Cart_EcommerceUsers" />
-        <AssociationConnector Association="EcommerceSitesiModel.FK_Cart_Urunler" />
+      <Diagram DiagramId="b940d619347c4832aee499b20c01c47e" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.Cart" Width="1.5" PointX="7.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.EcommerceUser" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Kullanici" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.KullaniciYetki" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Markalar" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.UrunDetaylar" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Urunler" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.UrunlerKategori" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.UserLog" Width="1.5" PointX="10" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.UserLogTuru" Width="1.5" PointX="7.75" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK_Cart_EcommerceUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Cart_Urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Kullanici_KullaniciYetki" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Urunler_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Urunler_Markalar" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Urunler_UrunDetaylar" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Urunler_UrunlerKategori" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_UserLog_UserLogTuru" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBModel.Slider" Width="1.5" PointX="7.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

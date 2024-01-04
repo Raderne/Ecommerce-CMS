@@ -640,6 +640,8 @@
     <Content Include="Yonetici\KullaniciUye.aspx" />
     <Content Include="Yonetici\KullaniciYonetim.aspx" />
     <Content Include="Yonetici\SifreUnuttumSayfa.aspx" />
+    <Content Include="Yonetici\SliderEkleme.aspx" />
+    <Content Include="Yonetici\SliderYonetim.aspx" />
     <Content Include="Yonetici\UrunDuzenle.aspx" />
     <Content Include="Yonetici\UrunEkleme.aspx" />
     <Content Include="Yonetici\UrunYonetim.aspx" />
@@ -4063,6 +4065,20 @@
     </Compile>
     <Compile Include="Yonetici\SifreUnuttumSayfa.aspx.designer.cs">
       <DependentUpon>SifreUnuttumSayfa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetici\SliderEkleme.aspx.cs">
+      <DependentUpon>SliderEkleme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yonetici\SliderEkleme.aspx.designer.cs">
+      <DependentUpon>SliderEkleme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetici\SliderYonetim.aspx.cs">
+      <DependentUpon>SliderYonetim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yonetici\SliderYonetim.aspx.designer.cs">
+      <DependentUpon>SliderYonetim.aspx</DependentUpon>
     </Compile>
     <Compile Include="Yonetici\UrunDuzenle.aspx.cs">
       <DependentUpon>UrunDuzenle.aspx</DependentUpon>

@@ -9,7 +9,7 @@ namespace BLL
     {
         public bool UserLog(Dal.UserLog LogKayitlari)
         {
-            using (Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities())
+            using (Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities())
             {
                 LogKayitlari.BilgisayarIP = GetIPAddress();
                 LogKayitlari.KayitTarihi = DateTime.Now;

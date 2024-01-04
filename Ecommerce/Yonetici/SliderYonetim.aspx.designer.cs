@@ -7,20 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ecommerce.Public
+namespace Ecommerce.Yonetici
 {
 
 
-    public partial class index
+    public partial class SliderYonetim
     {
 
         /// <summary>
-        /// Literal_Sliders control.
+        /// Literal_SliderListele control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Literal_Sliders;
+        protected global::System.Web.UI.WebControls.Literal Literal_SliderListele;
     }
 }

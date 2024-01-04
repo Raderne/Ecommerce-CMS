@@ -77,8 +77,8 @@
   <ItemGroup>
     <Content Include="EcommerceSitesi.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EcommerceSitesi.Context.cs</LastGenOutput>
       <DependentUpon>EcommerceSitesi.edmx</DependentUpon>
+      <LastGenOutput>EcommerceSitesi.Context.cs</LastGenOutput>
     </Content>
     <Content Include="EcommerceSitesi.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -119,6 +119,9 @@
       <DependentUpon>EcommerceSitesi.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Slider.cs">
+      <DependentUpon>EcommerceSitesi.tt</DependentUpon>
+    </Compile>
     <Compile Include="UrunDetaylar.cs">
       <DependentUpon>EcommerceSitesi.tt</DependentUpon>
     </Compile>

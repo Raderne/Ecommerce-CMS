@@ -29,19 +29,19 @@ namespace Dal
         public string UrunAciklama { get; set; }
         public Nullable<int> miktar { get; set; }
         public Nullable<bool> isNew { get; set; }
+        public string Cinsiyet { get; set; }
         public string UrunResim { get; set; }
         public Nullable<int> UrunDetayID { get; set; }
         public Nullable<int> UrunKategoriID { get; set; }
         public Nullable<int> MarkaID { get; set; }
         public Nullable<int> UserID { get; set; }
         public Nullable<bool> AktifllikDurumu { get; set; }
-        public string Cinsiyet { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Carts { get; set; }
         public virtual Kullanici Kullanici { get; set; }
         public virtual Markalar Markalar { get; set; }
         public virtual UrunDetaylar UrunDetaylar { get; set; }
         public virtual UrunlerKategori UrunlerKategori { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cart> Carts { get; set; }
     }
 }

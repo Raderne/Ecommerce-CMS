@@ -66,7 +66,7 @@ namespace Ecommerce.Yonetici
 
         private void UrunMarkaListele()
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             var markalar = db.Markalars.ToList();
             foreach (var item in markalar)
             {
@@ -76,7 +76,7 @@ namespace Ecommerce.Yonetici
 
         private void UrunKategoriListele()
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             var kategoriler = db.UrunlerKategoris.ToList();
             foreach (var item in kategoriler)
             {

@@ -10,13 +10,13 @@ namespace BLL
     {
         public List<Dal.Urunler> UrunListele()
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             return db.Urunlers.Where(x => x.AktifllikDurumu == true).ToList();
         }
 
         public List<Dal.Urunler> UrunListele(string marka = null, string isNew = null, string onSale = null, string kategoriName = null, string cinsiyet = null)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
 
             // Filter by Marka
             int? markaID = null;
@@ -77,7 +77,7 @@ namespace BLL
             dt.Columns.Add("Urun Detaylar");
             dt.Columns.Add("Urun Sil");
 
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             var urunler = db.Urunlers.Where(x => x.AktifllikDurumu == true && x.UserID == id).ToList();
             foreach (var item in urunler)
             {
@@ -90,7 +90,7 @@ namespace BLL
 
         public bool UrunEkle(Dal.Urunler urun)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             db.Urunlers.Add(urun);
             var sonuc = db.SaveChanges();
             if (sonuc > 0)
@@ -105,7 +105,7 @@ namespace BLL
 
         public bool UrunDetayEkle(Dal.UrunDetaylar urunDetay)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             db.UrunDetaylars.Add(urunDetay);
             var sonuc = db.SaveChanges();
             if (sonuc > 0)
@@ -120,7 +120,7 @@ namespace BLL
 
         public bool UrunSil(int id)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             var silinecek = db.Urunlers.Where(x => x.UrunID == id).SingleOrDefault();
             silinecek.AktifllikDurumu = false;
             int sonuc = db.SaveChanges();
@@ -129,7 +129,7 @@ namespace BLL
 
         public bool UrunGuncelle(Dal.Urunler urun)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             var guncellenecek = db.Urunlers.Where(x => x.UrunID == urun.UrunID).SingleOrDefault();
             guncellenecek.UrunIsim = urun.UrunIsim;
             guncellenecek.UrunAciklama = urun.UrunAciklama;
@@ -156,7 +156,7 @@ namespace BLL
 
         public bool UrunDetayGuncelle(Dal.UrunDetaylar urunDetay)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             var guncellenecek = db.UrunDetaylars.Where(x => x.UrunDetayID == urunDetay.UrunDetayID).SingleOrDefault();
             guncellenecek.UrunBoyut = urunDetay.UrunBoyut;
             guncellenecek.UrunRenk = urunDetay.UrunRenk;
@@ -171,7 +171,7 @@ namespace BLL
 
         public bool UrunDetayGuncelleme(Dal.UrunDetaylar urunDetay)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             var guncellenecek = db.UrunDetaylars.Where(x => x.UrunDetayID == urunDetay.UrunDetayID).SingleOrDefault();
             guncellenecek.UrunBoyut = urunDetay.UrunBoyut;
             guncellenecek.UrunRenk = urunDetay.UrunRenk;
@@ -182,19 +182,19 @@ namespace BLL
 
         public Dal.Urunler UrunGetir(int id)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             return db.Urunlers.Where(x => x.UrunID == id && x.AktifllikDurumu == true).SingleOrDefault();
         }
 
         public Dal.UrunDetaylar UrunDetayGetir(int id)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             return db.UrunDetaylars.Where(x => x.UrunDetayID == id).SingleOrDefault();
         }
 
         public bool CartUrunEkle(Dal.Cart cart)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             db.Carts.Add(cart);
             var sonuc = db.SaveChanges();
             return sonuc > 0;
@@ -202,13 +202,13 @@ namespace BLL
 
         public List<Dal.Cart> CartGetir(int id)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             return db.Carts.Where(x => x.UserID == id).ToList();
         }
 
         public bool CartUrunlerSil(int id)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             var silinecek = db.Carts.Where(x => x.UserID == id).ToList();
             foreach (var item in silinecek)
             {
@@ -220,13 +220,13 @@ namespace BLL
 
         public Dal.UrunlerKategori UrunKategoriGetir(int id)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             return db.UrunlerKategoris.Where(x => x.UrunKategoriID == id).SingleOrDefault();
         }
 
         public Dal.Markalar MarkaGetir(int markaID)
         {
-            Dal.EcommerceSitesiEntities db = new Dal.EcommerceSitesiEntities();
+            Dal.EcommerceDBSitesiEntities db = new Dal.EcommerceDBSitesiEntities();
             return db.Markalars.Where(x => x.MarkaID == markaID).SingleOrDefault();
         }
     }
